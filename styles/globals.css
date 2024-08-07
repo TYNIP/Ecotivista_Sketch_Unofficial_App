@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Coustard:wght@400;900&family=League+Gothic&family=Roboto:wght@400;700&family=Scheherazade+New:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Coustard:wght@400;900&family=League+Gothic&family=Roboto:wght@400;700&family=Scheherazade+New:wght@400;500;600;700&display=swap');
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -32,7 +34,52 @@ body {
   }
 } */
 
-body{
+
+/* 
+STYLE INFO
+GENERAL: Scheherazade New
+
+*/
+
+body, html{
   color: black;
   background-color: #ffffff;
+  font-family: "Scheherazade New", serif;
+  margin: 0;
+  padding: 0;
 }
+
+#mainName{
+  font-family: "Bodoni Moda SC", serif;
+  font-size: 4rem;
+  border-bottom: 0.5px solid black;
+  margin-bottom: 10px;
+}
+.hover{
+  cursor: pointer;
+}
+.hover:hover{
+  background-color: #E9E9E9;
+  transition:200ms;
+  border-radius: 10px;
+}
+
+.hide{
+  display: block;
+}
+.show{
+  display: none;
+}
+
+@media only screen and (max-width:800px){
+  .hide{
+    display: none;
+  }
+  .show{
+    display: block;
+  }
+}
+
+/* *{
+  border: 1px solid green;
+} */
