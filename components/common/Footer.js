@@ -50,7 +50,7 @@ const Footer = () => {
       <FooterInfo>
         <SqInfo>
           <p>Ecotivista</p>
-          <Link href="/">About Us</Link>
+          <Link href="/about">About Us</Link>
           <Link href="/">Journalism</Link>
           <Link href="/">Activism</Link>
           <Link href="/">Education</Link>
