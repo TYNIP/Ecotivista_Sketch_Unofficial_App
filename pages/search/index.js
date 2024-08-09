@@ -7,7 +7,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 `;
-export default function Home() {
+export default function SearchPage() {
   return (
     <>
       <Meta

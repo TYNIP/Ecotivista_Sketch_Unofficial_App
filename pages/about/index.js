@@ -1,7 +1,7 @@
 /* ABOUT */
 import Meta from '../../components/seo/Meta';
 
-export default function Home() {
+export default function AboutPage() {
   return (
     <>
       <Meta

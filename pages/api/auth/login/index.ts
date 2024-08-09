@@ -44,7 +44,6 @@ export default async function POST(
                 message: msg.error.incorrect,
             })
         } 
-        console.log('end')
 
         // @ts-ignore
         const {password: userPass,  ...rest} = userFind._doc;
@@ -70,7 +69,7 @@ export default async function POST(
 
 
     } catch (err) {
-        return res.status(400).json({
+        return res.status(500).json({
             message: msg.error.default,
         })
     }

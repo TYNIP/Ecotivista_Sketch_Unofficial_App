@@ -1,11 +1,11 @@
-/* HOME */
+/* REGISTER */
 import Meta from '../components/seo/Meta';
 
-export default function HomePage() {
+export default function RegisterPage() {
   return (
     <>
       <Meta
-        title="Ecotivista"
+        title="Ecotivista | Register "
         description="The House of Independent Journalism, Activism and Education."
         canonical="http://localhost:3000/"
       />

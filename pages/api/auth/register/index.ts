@@ -77,7 +77,7 @@ export default async function POST(
         }))
 
     } catch (err) {
-        return res.status(400).json({
+        return res.status(500).json({
             message: msg.error.default,
         })
     }

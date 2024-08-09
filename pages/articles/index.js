@@ -1,7 +1,7 @@
 /* ARTICLES */
 import Meta from '../../components/seo/Meta';
 
-export default function Home() {
+export default function ArticlesPage() {
   return (
     <>
       <Meta

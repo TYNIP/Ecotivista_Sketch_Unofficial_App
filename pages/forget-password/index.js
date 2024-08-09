@@ -1,11 +1,11 @@
-/* HOME */
+/* FORGET PASSWORD */
 import Meta from '../components/seo/Meta';
 
-export default function HomePage() {
+export default function ForgetPasswordPage() {
   return (
     <>
       <Meta
-        title="Ecotivista"
+        title="Ecotivista | Forget Password"
         description="The House of Independent Journalism, Activism and Education."
         canonical="http://localhost:3000/"
       />

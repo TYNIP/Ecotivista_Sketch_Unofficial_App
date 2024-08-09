@@ -2,7 +2,7 @@
 import Meta from '../../components/seo/Meta';
 import ComingSoon from '../../components/extras/ComingSoon';
 
-export default function Home() {
+export default function EducationPage() {
   return (
     <>
       <Meta
