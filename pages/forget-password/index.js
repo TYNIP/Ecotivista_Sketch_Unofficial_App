@@ -1,5 +1,5 @@
 /* FORGET PASSWORD */
-import Meta from '../components/seo/Meta';
+import Meta from '../../components/seo/Meta';
 
 export default function ForgetPasswordPage() {
   return (

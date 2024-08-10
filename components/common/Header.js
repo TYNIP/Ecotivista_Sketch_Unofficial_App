@@ -166,7 +166,7 @@ const Header = () => {
           </div>
       </Nav>
       <Nav>
-        <Link href="/">Sign In</Link>
+        <Link href="/login">Log In</Link>
       </Nav>
     </HeaderContainer>
     {options && (<OptionNav setOptions={setOptions}/>)}

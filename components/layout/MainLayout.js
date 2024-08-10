@@ -4,6 +4,7 @@ import Footer from '../common/Footer';
 import styled from 'styled-components';
 import SubHeader from '../common/SubHeader';
 import Warning from '../ui/Warning';
+import {NotificationProvider} from '../../pages/api/context/NotificationContext';
 
 const Container = styled.div`
   display: flex;
@@ -24,8 +25,10 @@ const MainLayout = ({ children }) => (
   <Container>
     <Header />
     <SubHeader/>
-    {msg.length > 0 && (<Warning message={msg} bkg={color}/>)}
-    <Main>{children}</Main>
+      <NotificationProvider>
+        {msg.length > 0 && (<Warning message={msg} bkg={color}/>)}
+        <Main>{children}</Main>
+      </NotificationProvider>
     <Footer />
   </Container>
 );
