@@ -53,13 +53,6 @@ export default async function POST(
         });
 
         //Endpoint Response
-        res.status(200).json(
-            {
-                userFind: rest,
-                message: msg.success.userLogged,
-            }
-        )
-
         res.setHeader('Set-Cookie', cookie.serialize('auth_cookie', token, {
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
@@ -67,6 +60,12 @@ export default async function POST(
             path: '/',
         }))
 
+        res.status(200).json(
+            {
+                userFind: rest,
+                message: msg.success.userLogged,
+            }
+        )
 
     } catch (err) {
         return res.status(500).json({

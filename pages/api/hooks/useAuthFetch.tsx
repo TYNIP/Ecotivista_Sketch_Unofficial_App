@@ -6,7 +6,7 @@ import { NotificationContext } from '../context/NotificationContext';
 
 interface AuthFetchProps{
     endpoint: string
-    redirectRoute: string
+    redirectRoute?: string
     formData: any
     options?: AxiosRequestConfig<any>
 }

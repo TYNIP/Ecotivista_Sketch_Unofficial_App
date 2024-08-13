@@ -3,6 +3,7 @@
     bottom: 0;
     right: 0;
     margin-bottom: 1rem;
+    margin-right: 2%;
     z-index: 5;
 
     display: flex;
@@ -15,15 +16,17 @@
     transition: 0.3s;
 
     border: 0.5px solid #878787;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px;
     border-right: none;
     outline: 0.5px solid transparent;
 
     &.success{
         outline: 1.5px solid greenyellow;
+        background-color: rgb(184, 233, 109);
     }
     &.error{
         outline: 1.5px solid orangered;
+        background-color: rgb(236, 155, 125);
     }
 }
 

@@ -14,11 +14,10 @@ export default async function GET(
     try {
         await connectMongoDB();
         const users = await User.find();
-        console.log(users)
         const info = users.map(user => user.email);
 
         res.status(200).json({info});
-
+        
     } catch (err) {
         return res.status(500).json({
             message: msg.error.default,

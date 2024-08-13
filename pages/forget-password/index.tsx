@@ -1,4 +1,4 @@
-/* LOG IN */
+/* FORGET PASSWORD */
 "use client"
 
 import Meta from '../../components/seo/Meta';
@@ -7,15 +7,14 @@ import {useAuthFetch} from '../api/hooks/useAuthFetch';
 import {useLoading} from '../api/hooks/useLoading';
 import {API_URL} from '../api/utils/isLocalHost';
 
-export default function LoginPage () {
+export default function ForgetPasswordPage () {
   const {finishLoading, isLoading, startLoading} = useLoading();
   const authfetch = useAuthFetch();
 
-  const login = async (formData: any)=>{
+  const forgetPassword = async (formData: any)=>{
     startLoading()
     await authfetch({
-      endpoint: 'login',
-      redirectRoute: '/',
+      endpoint: 'forget-password',
       formData
     });
     finishLoading()
@@ -24,11 +23,11 @@ export default function LoginPage () {
   return (
     <section className='mainCenter'>
       <Meta
-        title="Ecotivista | Log In "
+        title="Ecotivista | Forget Password"
         description="The House of Independent Journalism, Activism and Education."
-        canonical={`${API_URL}/login`}
+        canonical={`${API_URL}/forget-password`}
       />
-      <Form title='Log In' onSubmit={login} description='Log in to enter to your Ecotivista account'>
+      <Form title='Forget Password' onSubmit={forgetPassword} description='Fill out the form to recover your acount password'>
 
         <div className='my-[10px] flex flex-col gap-4'>
 
@@ -37,28 +36,18 @@ export default function LoginPage () {
           name='email' 
           placeholder='Enter your email...' 
           type='text'/>
-          <Form.Input 
-          label='Password' 
-          name='password' 
-          placeholder='Password...' 
-          type='password'/>
 
         </div>
 
         <Form.SubmitButton 
-          buttonText='Log In'
+          buttonText='Recover Password'
           isLoading={isLoading}
         />
 
         <Form.Footer 
-        description='Forgot your password?' 
-        link='/forget-password' 
-        textLink='Recover Password'/>
-
-        <Form.Footer 
-        description="You don't have an account?" 
-        link='/register' 
-        textLink='Register'/>
+        description="Go Back To Log In?" 
+        link='/login' 
+        textLink='Log In'/>
 
       </Form>
 

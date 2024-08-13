@@ -7,8 +7,15 @@ interface EmailTemplateProps {
 export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
   forgetPwd
 }) => (
-  <div>
-    <h1>Welcome!</h1>
-    <a href={forgetPwd}> Change Password </a>
+  <div
+  style={{
+    padding: '20px',
+    backgroundColor: 'white',
+    display: 'grid',
+    justifyItems: 'center',
+  }}
+  >
+    <h1 style={{textAlign: 'center'}}>Click to the link to change your password</h1>
+    <a href={forgetPwd} style={{margin: '10px auto'}}> Change Password </a>
   </div>
 );

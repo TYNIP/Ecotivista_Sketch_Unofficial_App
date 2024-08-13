@@ -61,13 +61,6 @@ export default async function POST(
 
         //Endpoint Response
         await newUser.save()
-        
-        res.status(200).json(
-            {
-                newUser: rest,
-                message: msg.success.userCreated,
-            }
-        )
 
         res.setHeader('Set-Cookie', cookie.serialize('auth_cookie', token, {
             secure: process.env.NODE_ENV === 'production',
@@ -75,6 +68,13 @@ export default async function POST(
             maxAge: 24*60*60,
             path: '/',
         }))
+
+        res.status(200).json(
+            {
+                newUser: rest,
+                message: msg.success.userCreated,
+            }
+        )
 
     } catch (err) {
         return res.status(500).json({

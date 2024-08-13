@@ -2,6 +2,8 @@
 import Meta from '../../components/seo/Meta';
 import SearchBar from '../../components/ui/SearchBar';
 import styled from 'styled-components';
+import API_URL from '../api/utils/isLocalHost';
+
 const Center = styled.div`
 display: flex;
 justify-content: center;
@@ -13,7 +15,7 @@ export default function SearchPage() {
       <Meta
         title="Ecotivista | Search"
         description="The House of Independent Journalism, Activism and Education."
-        canonical="http://localhost:3000/"
+        canonical={`${API_URL}/search`}
       />
       <Center>
         <SearchBar/>
