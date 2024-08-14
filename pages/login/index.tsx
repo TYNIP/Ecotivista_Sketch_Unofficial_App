@@ -1,11 +1,10 @@
 /* LOG IN */
-"use client"
 
 import Meta from '../../components/seo/Meta';
 import {Form} from '../../components/forms/index';
 import {useAuthFetch} from '../api/hooks/useAuthFetch';
 import {useLoading} from '../api/hooks/useLoading';
-import {API_URL} from '../api/utils/isLocalHost';
+const {PATHURL} = require('../api/config');
 
 export default function LoginPage () {
   const {finishLoading, isLoading, startLoading} = useLoading();
@@ -26,7 +25,7 @@ export default function LoginPage () {
       <Meta
         title="Ecotivista | Log In "
         description="The House of Independent Journalism, Activism and Education."
-        canonical={`${API_URL}/login`}
+        canonical={`${PATHURL}/login`}
       />
       <Form title='Log In' onSubmit={login} description='Log in to enter to your Ecotivista account'>
 

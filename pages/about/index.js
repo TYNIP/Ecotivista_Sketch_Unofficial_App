@@ -1,5 +1,6 @@
 /* ABOUT */
 import Meta from '../../components/seo/Meta';
+const {PATHURL} = require('../api/config');
 
 export default function AboutPage() {
   return (
@@ -7,7 +8,7 @@ export default function AboutPage() {
       <Meta
         title="Ecotivista | About"
         description="The House of Independent Journalism, Activism and Education."
-        canonical="http://localhost:3000/"
+        canonical={`${PATHURL}/about`}
       />
       <h1>About Ecotivista</h1>
     </>

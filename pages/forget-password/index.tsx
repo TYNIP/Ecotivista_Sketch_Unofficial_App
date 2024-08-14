@@ -1,11 +1,8 @@
 /* FORGET PASSWORD */
-"use client"
 
-import Meta from '../../components/seo/Meta';
 import {Form} from '../../components/forms/index';
 import {useAuthFetch} from '../api/hooks/useAuthFetch';
 import {useLoading} from '../api/hooks/useLoading';
-import {API_URL} from '../api/utils/isLocalHost';
 
 export default function ForgetPasswordPage () {
   const {finishLoading, isLoading, startLoading} = useLoading();
@@ -22,11 +19,6 @@ export default function ForgetPasswordPage () {
 
   return (
     <section className='mainCenter'>
-      <Meta
-        title="Ecotivista | Forget Password"
-        description="The House of Independent Journalism, Activism and Education."
-        canonical={`${API_URL}/forget-password`}
-      />
       <Form title='Forget Password' onSubmit={forgetPassword} description='Fill out the form to recover your acount password'>
 
         <div className='my-[10px] flex flex-col gap-4'>

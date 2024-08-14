@@ -6,5 +6,5 @@ const isLocalHost = Boolean(
 );
 
 /* EXPORTS */
-const API_URL = isLocalHost ? "http://localhost:5000" : "https://ecotivista.com";
+const API_URL = isLocalHost ? "http://localhost:3000" : "https://ecotivista.com";
 export {API_URL}; 

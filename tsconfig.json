@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/auth/register/index.ts", "pages/api/config.ts", "pages/index.js", "pages/info/profile/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/auth/register/index.ts", "pages/api/config.ts", "pages/index.js", "pages/info/profile/index.tsx"],
   "exclude": ["node_modules"]
 }

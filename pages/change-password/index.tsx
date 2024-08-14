@@ -1,5 +1,4 @@
 /* CHANGE PASSWORD */
-"use client"
 
 import {Form} from '../../components/forms/index';
 import {useAuthFetch} from '../api/hooks/useAuthFetch';

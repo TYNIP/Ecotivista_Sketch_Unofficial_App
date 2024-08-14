@@ -1,11 +1,10 @@
 /* REGISTER */
-"use client"
 
 import Meta from '../../components/seo/Meta';
 import {Form} from '../../components/forms/index';
 import {useAuthFetch} from '../api/hooks/useAuthFetch';
 import {useLoading} from '../api/hooks/useLoading';
-import {API_URL} from '../api/utils/isLocalHost';
+const {PATHURL} = require('../api/config');
 
 export default function RegisterPage () {
   const {finishLoading, isLoading, startLoading} = useLoading();
@@ -26,7 +25,7 @@ export default function RegisterPage () {
       <Meta
         title="Ecotivista | Register "
         description="The House of Independent Journalism, Activism and Education."
-        canonical={`${API_URL}/register`}
+        canonical={`${PATHURL}/register`}
       />
       <Form title='Register' onSubmit={register} description='Register to enter to have an Ecotivista account'>
 

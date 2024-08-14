@@ -1,6 +1,7 @@
 /* Forums */
 import Meta from '../../components/seo/Meta';
 import ComingSoon from '../../components/extras/ComingSoon';
+const {PATHURL} = require('../api/config');
 
 export default function ForumsPage() {
   return (
@@ -8,7 +9,7 @@ export default function ForumsPage() {
       <Meta
         title="Ecotivista | Forums"
         description="This is the home page description."
-        canonical="http://localhost:3000/"
+        canonical={`${PATHURL}/forums`}
       />
       <ComingSoon></ComingSoon>
     </>

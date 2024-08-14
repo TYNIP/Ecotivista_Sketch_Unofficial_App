@@ -1,6 +1,7 @@
 /* EDUCATION */
 import Meta from '../../components/seo/Meta';
 import ComingSoon from '../../components/extras/ComingSoon';
+const {PATHURL} = require('../api/config');
 
 export default function EventsPage() {
   return (
@@ -8,7 +9,7 @@ export default function EventsPage() {
       <Meta
         title="Ecotivista | Events"
         description="This is the home page description."
-        canonical="http://localhost:3000/"
+        canonical={`${PATHURL}/events`}
       />
       <ComingSoon></ComingSoon>
     </>
