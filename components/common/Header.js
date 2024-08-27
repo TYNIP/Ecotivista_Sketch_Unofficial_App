@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { useState } from "react";
 import { useRouter } from 'next/navigation'
+import { useAuth } from '../../pages/api/context/AuthContext';
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -145,6 +146,10 @@ const OptionNav = ({setOptions})=>{
 const Header = () => {
   const router = useRouter()
   const [options, setOptions] = useState(false);
+  const { isAuthenticated, loading } = useAuth();
+
+  console.log(isAuthenticated, loading)
+
   function change(){
     setOptions(!options)
   }

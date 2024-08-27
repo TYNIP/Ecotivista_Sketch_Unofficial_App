@@ -12,7 +12,7 @@ const SearchBar = () => {
     if (query.trim() === '') return;
 
     try {
-      const response = await fetch('YOUR_API_ENDPOINT', {
+      const response = await fetch('ENDPOINT', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const SearchBar = () => {
         <input
           type="text"
           name="text"
-          placeholder="Hover on Submit"
+          placeholder="Search by term ..."
           className="bg-transparent outline-none border-none pl-6 pr-10 py-5 w-full font-sans text-lg font-semibold"
           value={query}
           onChange={handleChange}

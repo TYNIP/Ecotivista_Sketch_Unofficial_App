@@ -8,13 +8,15 @@ export const msg = {
         userNotFound: 'User not found',
         incorrect: 'User or password incorrect',
         notAuthorized: 'User not authorized',
-        tokenNotValid: 'Token not valid'
+        tokenNotValid: 'Token not valid',
+        logOutError: 'An error occurred while logging out'
     },
     success:{
         userCreated: 'User created Successfully',
         userLogged: 'User Logged in Successfully',
         emailSent:'Email sent successfully',
         pwdChanged: 'Password changed successfully',
-        authorized: 'Authorized'
+        authorized: 'Authorized',
+        logout: 'Logout Successfully'
     }
 }
