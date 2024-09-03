@@ -1,8 +1,6 @@
 // context/AuthContext.js
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import {NextRequest} from 'next/server';
-import { NextResponse } from 'next/server';
 const {PATHURL} = require('../config');
 const {checkStatus} = require('../functions/checkStatus');
 
@@ -17,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       try {
 
         const res = await checkStatus();
-        console.log(res)
+        console.log('status check',res)
 
         if (res.isAuthorized) {
           setIsAuthenticated(true);
@@ -28,7 +26,6 @@ export const AuthProvider = ({ children }) => {
         console.log('User not authenticated')
         setIsAuthenticated(false);
       } finally {
-        console.log('loading over')
         setLoading(false);
       }
     };

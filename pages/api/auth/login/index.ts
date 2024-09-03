@@ -53,6 +53,7 @@ export default async function POST(
         });
 
         //Endpoint Response
+        console.log('creating cookies')
         res.setHeader('Set-Cookie', cookie.serialize('auth_cookie', token, {
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',

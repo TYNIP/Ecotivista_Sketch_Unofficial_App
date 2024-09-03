@@ -1,9 +1,6 @@
 "use client"
 
-import type {NextRequest} from 'next/server';
-import { NextResponse } from 'next/server';
 const {PATHURL} = require('../../api/config');
-import {cookies} from 'next/headers';
 
 export async function checkStatus() {
     try {
@@ -13,7 +10,7 @@ export async function checkStatus() {
             ?.split('=')[1];
 
         if (!token) {
-            return;
+            return "Not authenticated";
         }
 
 
@@ -27,6 +24,6 @@ export async function checkStatus() {
 
         return data;
     } catch (err) {
-        window.location.href = '/login'; // Redirect to login
+        window.location.href = '/login';
     }
 }

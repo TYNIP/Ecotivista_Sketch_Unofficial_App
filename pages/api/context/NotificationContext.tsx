@@ -4,7 +4,6 @@ import {StatusNotification} from '../../../pages/api/interfaces';
 import {Notification} from '../../../components/ui/notifications';
 import {createContext, useState} from 'react';
 
-
 interface IState{
     open: Boolean
     status: StatusNotification
