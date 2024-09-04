@@ -69,6 +69,17 @@ export default async function POST(
             path: '/',
         }))
 
+        //User Log Status Update
+        const userLogStatus = await User.findOne({email});
+        if(!userLogStatus) {
+            return res.status(400).json({
+                message: msg.error.userNotFound,
+            })
+        };
+        userLogStatus.userLogStatus = true;
+        await userLogStatus.save();
+
+        //Enpoint Response
         res.status(200).json(
             {
                 newUser: rest,

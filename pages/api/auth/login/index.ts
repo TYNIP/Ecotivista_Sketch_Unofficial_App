@@ -52,7 +52,7 @@ export default async function POST(
             expiresIn: 24 * 60 * 60, 
         });
 
-        //Endpoint Response
+        //Creating Cookie
         console.log('creating cookies')
         res.setHeader('Set-Cookie', cookie.serialize('auth_cookie', token, {
             secure: process.env.NODE_ENV === 'production',
@@ -61,6 +61,17 @@ export default async function POST(
             path: '/',
         }))
 
+        //User Log Status Update
+        const userLogStatus = await User.findOne({email});
+        if(!userLogStatus) {
+            return res.status(400).json({
+                message: msg.error.userNotFound,
+            })
+        };
+        userLogStatus.userLogStatus = true;
+        await userLogStatus.save();
+
+        //Endpoint Response
         res.status(200).json(
             {
                 userFind: rest,

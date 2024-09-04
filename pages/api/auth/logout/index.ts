@@ -4,6 +4,7 @@ import {msg} from '../../utils/msg';
 
 export default async function POST(req: NextApiRequest, res: NextApiResponse) {
     try {
+        
         res.setHeader('Set-Cookie', cookie.serialize('auth_cookie', '', {
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',

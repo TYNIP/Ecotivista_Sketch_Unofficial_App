@@ -9,7 +9,6 @@ export async function middleware (req: NextRequest){
             return NextResponse.redirect(new URL('/login', req.url));
         };
 
-
         const res = await fetch(`${PATHURL}/api/auth/check`,{
             headers: {
                 token: token.value
@@ -23,14 +22,6 @@ export async function middleware (req: NextRequest){
             return NextResponse.redirect(new URL('/login', req.url));
         }
 
-
-        if(data.isAuthorized){
-            
-            if(window.location.href === '/login' || window.location.href === '/signup'){
-                return NextResponse.redirect(new URL('/'));
-            }
-        }
-
         return NextResponse.next();
     } catch(err){
         console.log('err', err)
@@ -39,5 +30,5 @@ export async function middleware (req: NextRequest){
 }
 
 export const config = {
-    matcher: ['/info/:path*']
+    matcher: ['/info/:path*', '/api/authen/:path*']
 }

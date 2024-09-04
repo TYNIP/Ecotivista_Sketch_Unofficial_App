@@ -18,6 +18,7 @@ export default function RegisterPage () {
       formData
     });
     finishLoading()
+    setTimeout(()=>window.location.reload(), 200);
   }
 
   return (

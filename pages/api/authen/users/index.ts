@@ -1,8 +1,8 @@
 /* CHECK */
-import {connectMongoDB} from '../libs/mongodb';
+import {connectMongoDB} from '../../libs/mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {msg} from '../utils/msg';
-import User from '../models/User';
+import {msg} from '../../utils/msg';
+import User from '../../models/User';
 
 export default async function GET(
     req: NextApiRequest,

@@ -18,3 +18,9 @@
         };
     }
 }
+
+@media screen and (max-width: 500px){
+    .form{
+        min-width: 100%;
+    }   
+}

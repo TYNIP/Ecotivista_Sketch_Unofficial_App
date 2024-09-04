@@ -6,6 +6,7 @@ export interface IUser{
     password: string;
     createAt?: string; 
     updatedAt?: string;
+    userLogStatus: Boolean;
 }
 
 export interface IUserSchema extends Document{
@@ -14,6 +15,7 @@ export interface IUserSchema extends Document{
     password: string;
     createAt?: string; 
     updatedAt?: string;
+    userLogStatus: Boolean;
 }
 
 const UserSchema: Schema = new Schema ({
@@ -24,6 +26,11 @@ const UserSchema: Schema = new Schema ({
     },
     password:{
         type: String,
+        required: true,
+    },
+    userLogStatus:{
+        type: Boolean,
+        default: false,
         required: true,
     },
     },

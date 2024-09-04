@@ -18,7 +18,6 @@ export default function LoginPage () {
       formData
     });
     finishLoading()
-    console.log(formData);
     setTimeout(()=>window.location.reload(), 200);
   }
 

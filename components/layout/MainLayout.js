@@ -20,15 +20,19 @@ const Main = styled.main`
 
 `;
 
-const color ='green'
-const msg = ''
+
+const generalNotifications = [{msg: 'hola', color:'green'}, {msg:'ah', color:'red'}];
 
 const MainLayout = ({ children }) => (
   <Container>
     <Header />
     <SubHeader/>
       <NotificationProvider>
-        {msg.length > 0 && (<Warning message={msg} bkg={color}/>)}
+        {generalNotifications.length > 0 && (
+          generalNotifications.map(notification=>{
+            <Warning message={notification.msg} bkg={notification.color}/>
+          })
+        )}
         <Main>{children}</Main>
       </NotificationProvider>
     <Footer />
