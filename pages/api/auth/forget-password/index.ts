@@ -56,7 +56,7 @@ export default async function POST(
         await resend.emails.send({
             from: 'Ecotivista <onboarding@resend.dev>',
             to: [`${email}`],
-            subject: 'Change Password',
+            subject: 'Cambiar Contraseña',
             react: EmailTemplate({ forgetPwd: forgetUrl }),
         })
 

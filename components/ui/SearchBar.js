@@ -37,7 +37,7 @@ const SearchBar = () => {
         <input
           type="text"
           name="text"
-          placeholder="Search by term ..."
+          placeholder="Busca por termino ..."
           className="bg-transparent outline-none border-none pl-6 pr-10 py-5 w-full font-sans text-lg font-semibold"
           value={query}
           onChange={handleChange}

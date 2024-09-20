@@ -24,41 +24,41 @@ export default function LoginPage () {
   return (
     <section className='mainCenter'>
       <Meta
-        title="Ecotivista | Log In "
-        description="The House of Independent Journalism, Activism and Education."
+        title="Inicio de Sesión - Ecotivista"
+        description="Inicio de Sesión a Ecotivista"
         canonical={`${PATHURL}/login`}
       />
-      <Form title='Log In' onSubmit={login} description='Log in to enter to your Ecotivista account'>
+      <Form title='Iniciar Sesión' onSubmit={login} description='Inicia sesión para acceder a tu cuenta de Ecotivista'>
 
         <div className='my-[10px] flex flex-col gap-4'>
 
           <Form.Input 
           label='Email' 
-          name='email' 
-          placeholder='Enter your email...' 
+          name='Email' 
+          placeholder='Escriba su email...' 
           type='text'/>
           <Form.Input 
-          label='Password' 
-          name='password' 
-          placeholder='Password...' 
+          label='Contraseña' 
+          name='Contraseña' 
+          placeholder='Escriba su contraseña...' 
           type='password'/>
 
         </div>
 
         <Form.SubmitButton 
-          buttonText='Log In'
+          buttonText='Iniciar Sesión'
           isLoading={isLoading}
         />
 
         <Form.Footer 
-        description='Forgot your password?' 
+        description='¿Olvidaste tu Contraseña?' 
         link='/forget-password' 
-        textLink='Recover Password'/>
+        textLink='Recuperar Contraseña'/>
 
         <Form.Footer 
-        description="You don't have an account?" 
+        description="¿No Tienes Contraseña?" 
         link='/register' 
-        textLink='Register'/>
+        textLink='Registrate'/>
 
       </Form>
 

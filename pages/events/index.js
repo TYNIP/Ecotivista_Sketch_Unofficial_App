@@ -7,8 +7,8 @@ export default function EventsPage() {
   return (
     <>
       <Meta
-        title="Ecotivista | Events"
-        description="This is the home page description."
+        title="Eventos - Ecotivista"
+        description="Eventos organisados por la comunidad de Ecotivista"
         canonical={`${PATHURL}/events`}
       />
       <ComingSoon></ComingSoon>

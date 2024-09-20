@@ -37,7 +37,7 @@ export const NotificationProvider: React.FC<Props> = ({ children }) =>{
             console.log('msg', props)
             setTimeout(() => {
                 setNotification({open: false, msj: null, status: null}); 
-            }, 4000);
+            }, 6000);
         };
     }
 

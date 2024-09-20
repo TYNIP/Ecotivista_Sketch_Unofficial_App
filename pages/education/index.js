@@ -7,8 +7,8 @@ export default function EducationPage() {
   return (
     <>
       <Meta
-        title="Ecotivista | Education"
-        description="This is the home page description."
+        title="Educación - Ecotivista"
+        description="Pagína de cursos educativos de la comunidad Ecotivista"
         canonical={`${PATHURL}/education`}
       />
       <ComingSoon></ComingSoon>

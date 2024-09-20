@@ -7,8 +7,8 @@ export default function ForumsPage() {
   return (
     <>
       <Meta
-        title="Ecotivista | Forums"
-        description="This is the home page description."
+        title="Foros - Ecotivista"
+        description="Foros organisados por la comunidad de Ecotivista"
         canonical={`${PATHURL}/forums`}
       />
       <ComingSoon></ComingSoon>

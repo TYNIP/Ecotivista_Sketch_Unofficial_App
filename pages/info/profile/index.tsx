@@ -32,13 +32,13 @@ export default function ProfilePage() {
         <table>
           <thead>
             <tr>
-              <th colSpan="4" className='t'>Profile Information</th>
+              <th colSpan="4" className='t'>Información de Usuario</th>
             </tr>
             <tr>
               <th>#</th>
               <th>Id</th>
               <th>Email</th>
-              <th>Created</th>
+              <th>Creado</th>
             </tr>
           </thead>
           <tbody>

@@ -129,12 +129,12 @@ const OptionNav = ({setOptions})=>{
   return(
     <>
       <OptionsBanner className='show'>
-        <Link href="/" onClick={()=>setOptions(false)} className='show' >Home </Link>
-        <Link href="/about" onClick={()=>setOptions(false)}className='show' >About</Link>
-        <Link href="/articles" onClick={()=>setOptions(false)}className='show' >Articles</Link>
-        <Link href="/education" onClick={()=>setOptions(false)} className='show' >Education</Link>
-        <Link href="/forums" onClick={()=>setOptions(false)} className='show' >Forums</Link>
-        <Link href="/events" onClick={()=>setOptions(false)}className='show' >Events</Link>
+        <Link href="/" onClick={()=>setOptions(false)} className='show' >Inicio</Link>
+        <Link href="/about" onClick={()=>setOptions(false)}className='show' >Ecotivista</Link>
+        <Link href="/articles" onClick={()=>setOptions(false)}className='show' >Articulos</Link>
+        <Link href="/education" onClick={()=>setOptions(false)} className='show' >Educación</Link>
+        <Link href="/forums" onClick={()=>setOptions(false)} className='show' >Foros</Link>
+        <Link href="/events" onClick={()=>setOptions(false)}className='show' >Eventos</Link>
       </OptionsBanner>
       <Courtain onClick={()=>setOptions(false)} className='show'/>
     </>
@@ -180,12 +180,12 @@ const Header = () => {
           <IconSearch router={router}/>
         </Icons>
           <div className='hide' onClick={()=>setOptions(false)}>
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/articles">Articles</Link>
-            <Link href="/education">Education</Link>
-            <Link href="/forums">Forums</Link>
-            <Link href="/events">Events</Link>
+            <Link href="/">Inicio</Link>
+            <Link href="/about">Ecotivista</Link>
+            <Link href="/articles">Articulos</Link>
+            <Link href="/education">Educación</Link>
+            <Link href="/forums">Foros</Link>
+            <Link href="/events">Eventos</Link>
           </div>
       </Nav>
       <Nav>
@@ -201,7 +201,7 @@ const Header = () => {
     {optionsUser && (<OptionNavUser setOptions={setOptionsUser}/>)}
     <Banner>
         <Logo id='mainName'><Link href="/">ECOTIVISTA</Link></Logo>
-        <PhraseMain><Link href="/">The House of Independent Journalism, Activism and Education.</Link></PhraseMain>
+        <PhraseMain><Link href="/">La Casa del Periodismo y Activismo Independiente</Link></PhraseMain>
     </Banner>
     </>
   );

@@ -24,41 +24,41 @@ export default function RegisterPage () {
   return (
     <section className='mainCenter'>
       <Meta
-        title="Ecotivista | Register "
-        description="The House of Independent Journalism, Activism and Education."
+        title="Registro - Ecotivista"
+        description="Registro de cuenta para formar parte de la comunidad de Ecotivista"
         canonical={`${PATHURL}/register`}
       />
-      <Form title='Register' onSubmit={register} description='Register to enter to have an Ecotivista account'>
+      <Form title='Registro' onSubmit={register} description='Registrate para tener tu cuenta de Ecotivista'>
 
         <div className='my-[10px] flex flex-col gap-4'>
 
           <Form.Input 
           label='Email' 
           name='email' 
-          placeholder='Enter your email...' 
+          placeholder='Escriba su email...' 
           type='text'/>
           <Form.Input 
-          label='Password' 
+          label='Contraseña' 
           name='password' 
-          placeholder='Password...' 
+          placeholder='Contraseña...' 
           type='password'/>
           <Form.Input 
-          label='Password' 
+          label='Confirmar Contraseña' 
           name='confirmPassword' 
-          placeholder='Confirm Password...' 
+          placeholder='Confirmar Contraseña...' 
           type='password'/>
 
         </div>
 
         <Form.SubmitButton 
-          buttonText='Register'
+          buttonText='Registrate'
           isLoading={isLoading}
         />
 
         <Form.Footer 
-        description="Already have an account?" 
+        description="¿Ya Tienes una Cuenta?" 
         link='/login' 
-        textLink='Log In'/>
+        textLink='Iniciar Sesión'/>
 
       </Form>
 

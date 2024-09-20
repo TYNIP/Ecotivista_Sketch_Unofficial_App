@@ -31,26 +31,26 @@ export default function ChangePasswordPage () {
 
   return (
     <section className='mainCenter'>
-      <Form title='Change Password' onSubmit={changePassword} description='Fill out the form to change your password'>
+      <Form title='Cambiar Contraseña' onSubmit={changePassword} description='Completa el formulario para cambiar contraseña'>
 
         <div className='my-[10px] flex flex-col gap-4'>
 
         <Form.Input 
-          label='Password' 
-          name='newPassword' 
-          placeholder='New Password...' 
+          label='Contraseña' 
+          name='Contraseña' 
+          placeholder='Nueva Contraseña...' 
           type='password'/>
 
           <Form.Input 
-          label='Password' 
+          label='Confirmación de Contraseña'  
           name='confirmPassword' 
-          placeholder='Confirm New Password...' 
+          placeholder='Confirma Nueva Contraseña...' 
           type='password'/>
 
         </div>
 
         <Form.SubmitButton 
-          buttonText='Change Password'
+          buttonText='Cambiar Contraseña'
           isLoading={isLoading}
         />
 

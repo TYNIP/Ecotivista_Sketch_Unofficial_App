@@ -13,8 +13,8 @@ export default function SearchPage() {
   return (
     <>
       <Meta
-        title="Ecotivista | Search"
-        description="The House of Independent Journalism, Activism and Education."
+        title="Busqueda - Ecotivista"
+        description="Panel de Busqueda a Toda Información de Ecotivista"
         canonical={`${PATHURL}/search`}
       />
       <Center>

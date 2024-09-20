@@ -29,8 +29,8 @@ const MainLayout = ({ children }) => (
     <SubHeader/>
       <NotificationProvider>
         {generalNotifications.length > 0 && (
-          generalNotifications.map(notification=>{
-            <Warning message={notification.msg} bkg={notification.color}/>
+          generalNotifications.map((notification, key)=>{
+            <Warning key={key} message={notification.msg} bkg={notification.color}/>
           })
         )}
         <Main>{children}</Main>

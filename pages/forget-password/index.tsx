@@ -19,27 +19,27 @@ export default function ForgetPasswordPage () {
 
   return (
     <section className='mainCenter'>
-      <Form title='Forget Password' onSubmit={forgetPassword} description='Fill out the form to recover your acount password'>
+      <Form title='Recuperar Contraseña' onSubmit={forgetPassword} description='Completa el formulario para recuperar contraseña'>
 
         <div className='my-[10px] flex flex-col gap-4'>
 
           <Form.Input 
           label='Email' 
-          name='email' 
-          placeholder='Enter your email...' 
+          name='Email' 
+          placeholder='Escriba su email...' 
           type='text'/>
 
         </div>
 
         <Form.SubmitButton 
-          buttonText='Recover Password'
+          buttonText='Recuperar Contraseña'
           isLoading={isLoading}
         />
 
         <Form.Footer 
-        description="Go Back To Log In?" 
+        description="¿Tienes una cuenta?" 
         link='/login' 
-        textLink='Log In'/>
+        textLink='Inicia Sesión'/>
 
       </Form>
 

@@ -50,31 +50,31 @@ const Footer = () => {
       <FooterInfo>
         <SqInfo>
           <p>Ecotivista</p>
-          <Link href="/about">About Us</Link>
-          <Link href="/">Journalism</Link>
-          <Link href="/">Activism</Link>
-          <Link href="/">Education</Link>
+          <Link href="/about">Sobre Ecotivista</Link>
+          <Link href="/">Periodismo</Link>
+          <Link href="/">Activismo</Link>
+          <Link href="/">Educación</Link>
         </SqInfo>
 
         <SqInfo>
-          <p>Contact Us</p>
-          <Link href="/">Send Us an Email</Link>
+          <p>Contactanos</p>
+          <Link href="/">Mandanos un Email</Link>
         </SqInfo>
 
         <SqInfo>
-          <p>Community</p>
+          <p>Comunidad</p>
           <Link href="/">Discord</Link>
         </SqInfo>
 
         <SqInfo>
-          <p>Terms of Use</p>
-          <Link href="/">Terms Of Service</Link>
-          <Link href="/">Privacy Policy</Link>
-          <Link href="/">Cookie Settings</Link>
+          <p>Terminos de Uso</p>
+          <Link href="/">Terminos del Servicio</Link>
+          <Link href="/">Politica de Privacidad</Link>
+          <Link href="/">Configuración de Cookies</Link>
         </SqInfo>
 
         <SqInfo>
-          <p>Social Media</p>
+          <p>Redes Sociales</p>
           <SocialMedia/>
         </SqInfo>
 

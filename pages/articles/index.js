@@ -6,11 +6,11 @@ export default function ArticlesPage() {
   return (
     <>
       <Meta
-        title="Ecotivista | Articles"
-        description="The House of Independent Journalism, Activism and Education."
+        title="Articulos - Ecotivista"
+        description="Articulos de investigación de la comunidad de Ecotivista"
         canonical={`${PATHURL}/articles`}
       />
-      <h1>Articles of Ecotivista</h1>
+      <h1>Articulos</h1>
     </>
   );
 }
