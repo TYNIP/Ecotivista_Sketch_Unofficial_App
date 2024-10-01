@@ -1,4 +1,3 @@
-
 const { PATHURL } = require('../config');
 
 async function getData() {
