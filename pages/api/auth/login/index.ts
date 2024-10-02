@@ -15,7 +15,10 @@ export default async function POST(
 ){
     try {
         await connectMongoDB()
+    
         const {email, password} = req.body;
+
+        console.log(req.body);
         //Fields validation
         if(!email || !password) {
             return res.status(400).json({
@@ -45,6 +48,7 @@ export default async function POST(
             })
         } 
 
+
         // @ts-ignore
         const {password: userPass,  ...rest} = userFind._doc;
         //Create Token
@@ -70,6 +74,8 @@ export default async function POST(
         };
         userLogStatus.userLogStatus = true;
         await userLogStatus.save();
+
+        console.log(userLogStatus)
 
         //Endpoint Response
         res.status(200).json(

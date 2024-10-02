@@ -145,8 +145,9 @@ const OptionNavUser = ({setOptions})=>{
   return(
     <>
       <OptionsBannerRight>
-        <Link href="/info/profile" onClick={()=>setOptions(false)}>Profile </Link>
-        <Link href="" onClick={()=>setOptions(false)}>Log Out</Link>
+        <Link href="/info/profile" onClick={()=>setOptions(false)}>Perfil </Link>
+        <Link href="/articles/publisher" onClick={()=>setOptions(false)}>Publicista </Link>
+        <Link href="" onClick={()=>setOptions(false)}>Cerrar Sesión</Link>
       </OptionsBannerRight>
       <Courtain onClick={()=>setOptions(false)} />
     </>

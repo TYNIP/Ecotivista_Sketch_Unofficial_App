@@ -37,7 +37,7 @@ export default function ChangePasswordPage () {
 
         <Form.Input 
           label='Contraseña' 
-          name='Contraseña' 
+          name='password' 
           placeholder='Nueva Contraseña...' 
           type='password'/>
 

@@ -34,12 +34,12 @@ export default function LoginPage () {
 
           <Form.Input 
           label='Email' 
-          name='Email' 
+          name='email' 
           placeholder='Escriba su email...' 
           type='text'/>
           <Form.Input 
           label='Contraseña' 
-          name='Contraseña' 
+          name='password' 
           placeholder='Escriba su contraseña...' 
           type='password'/>
 
