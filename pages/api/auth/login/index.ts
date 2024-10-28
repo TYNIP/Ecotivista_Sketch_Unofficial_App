@@ -51,6 +51,7 @@ export default async function POST(
 
         // @ts-ignore
         const {password: userPass,  ...rest} = userFind._doc;
+        console.log("rest: ", rest)
         //Create Token
         const token = jwt.sign({data: rest}, SECRET, {
             expiresIn: 24 * 60 * 60, 
@@ -75,7 +76,7 @@ export default async function POST(
         userLogStatus.userLogStatus = true;
         await userLogStatus.save();
 
-        console.log(userLogStatus)
+        console.log("log status: ", userLogStatus)
 
         //Endpoint Response
         res.status(200).json(

@@ -14,7 +14,6 @@ export default async function GET(
     try {
 
         const token = req.headers.token as string | undefined;
-
         if(!token) {
             return res.status(400).json({
                 message: msg.error.notAuthorized,
@@ -28,6 +27,7 @@ export default async function GET(
             await connectMongoDB();
             const userFind = await User.findById(data._id);
 
+
             if(!userFind) {
                 return res.status(400).json({
                     message: msg.error.userNotFound,
@@ -37,7 +37,8 @@ export default async function GET(
             res.status(200).json(
                 {
                     isAuthorized: true,
-                    message: msg.success.authorized
+                    message: msg.success.authorized,
+                    username: data.email
                 },
             )
 

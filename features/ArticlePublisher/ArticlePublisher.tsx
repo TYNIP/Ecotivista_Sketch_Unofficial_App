@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styles from './CreateArticle.module.scss';
 
 const CreateArticle = () => {
-  const [title, setTitle] = useState(""); // Title for the article
+  const [title, setTitle] = useState(""); 
   const [sections, setSections] = useState<any[]>([]);
-  const [isPreviewOpen, setIsPreviewOpen] = useState(false); // State for preview modal
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false); 
 
   // Handle section addition (text, image, video)
   const handleAddSection = (type: string) => {
