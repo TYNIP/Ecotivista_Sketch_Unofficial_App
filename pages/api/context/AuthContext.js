@@ -8,6 +8,8 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [username, setUsername] =  useState('');
+  const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,6 +20,8 @@ export const AuthProvider = ({ children }) => {
 
         if (res.isAuthorized) {
           setIsAuthenticated(true);
+          setUsername(res.username);
+          setEmail(res.email);
         } else {
           setIsAuthenticated(false);
         }
@@ -32,7 +36,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, loading, hola: true }}>
+    <AuthContext.Provider value={{ isAuthenticated, loading, username: username, email: email }}>
       {children}
     </AuthContext.Provider>
   );

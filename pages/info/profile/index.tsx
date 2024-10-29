@@ -3,10 +3,11 @@ import styles from './index.module.scss';
 import {getData} from '../../api/datahooks/profile';
 import dateTransform from '../../api/utils/dateTransform';
 import SocialMedia from '../../../components/ui/SocialMedia';
-
+import { useAuth } from '../../api/context/AuthContext';
 import Image from 'next/image';
 
 export default function ProfilePage() {
+  const {username, email} = useAuth();
   return (
     <div className={styles.container}>
       {/* Cover photo */}
@@ -35,13 +36,16 @@ export default function ProfilePage() {
         <div className={styles.info}>
           {/* User Info */}
           <div className={styles.userInfo}>
-            <h1 className={styles.username}>TYNIP</h1>
+            <h1 className={styles.username}>{username}</h1>
           </div>
 
           {/* Summary Section */}
           <div className={styles.summarySection}>
             <p className={styles.summary}>
             Software and Mechatronic Junior @TEC CCM | "My vision is to empower people to engage in sustainability and social impact projects, fostering a more united community where every voice matters. Where there’s a dream of change, there’s a future."
+            </p>
+            <p className={styles.summary}>
+              Email: {email}
             </p>
           </div>
         </div>

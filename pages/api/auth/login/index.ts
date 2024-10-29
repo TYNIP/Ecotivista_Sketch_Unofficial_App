@@ -73,6 +73,7 @@ export default async function POST(
                 message: msg.error.userNotFound,
             })
         };
+        
         userLogStatus.userLogStatus = true;
         await userLogStatus.save();
 

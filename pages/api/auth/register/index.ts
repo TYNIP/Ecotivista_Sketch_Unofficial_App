@@ -15,10 +15,10 @@ export default async function POST(
 ){
     try {
         await connectMongoDB()
-        const {email, password, confirmPassword} = req.body;
+        const {email, password, confirmPassword, username} = req.body;
 
         //Fields validation
-        if(!email || !password || !confirmPassword) {
+        if(!email || !password || !confirmPassword || !username) {
             return res.status(400).json({
                 message: msg.error.needProps,
             })
@@ -43,17 +43,25 @@ export default async function POST(
             })
         }
 
+        //Find username
+        const userNameFind = await User.findOne({username});
+        if(userNameFind){
+            return res.status(400).json({
+                message: msg.error.usernameExists,
+            })
+        }
+
         //HASH PWD
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt)
         const newUser: IUserSchema = new User({
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            username: username
         })
 
         // @ts-ignore
         const {password: userPass,  ...rest} = newUser._doc;
-
         //Create Token
         const token = jwt.sign({data: rest}, SECRET, {
             expiresIn: 24 * 60 * 60, 
@@ -76,8 +84,11 @@ export default async function POST(
                 message: msg.error.userNotFound,
             })
         };
+
+        
         userLogStatus.userLogStatus = true;
         await userLogStatus.save();
+
 
         //Enpoint Response
         res.status(200).json(
@@ -88,6 +99,7 @@ export default async function POST(
         )
 
     } catch (err) {
+        console.log(err)
         return res.status(500).json({
             message: msg.error.default,
         })

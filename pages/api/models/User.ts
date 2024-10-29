@@ -2,6 +2,7 @@ import mongoose, {Schema, Document, ObjectId} from "mongoose";
 
 export interface IUser{
     _id?: ObjectId | String | undefined;
+    username: string;
     email: string;
     password: string;
     createAt?: string; 
@@ -11,6 +12,7 @@ export interface IUser{
 
 export interface IUserSchema extends Document{
     _id?: ObjectId | String | undefined;
+    username: string;
     email: string;
     password: string;
     createAt?: string; 
@@ -19,6 +21,11 @@ export interface IUserSchema extends Document{
 }
 
 const UserSchema: Schema = new Schema ({
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
     email: {
         type: String,
         required: true,

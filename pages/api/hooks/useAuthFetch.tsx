@@ -17,16 +17,18 @@ export function useAuthFetch(){
 
     const authRouter = async({endpoint, redirectRoute, formData, options}: AuthFetchProps) =>{
         try{
+
             const data = await axios.post(`/api/auth/${endpoint}`, formData, options);
 
             showNotification({
-                msj: data.message,
+                msj: data.data.message,
                 open: true,
                 status: 'success'
-            })
+            });
 
             /* NOTIFICATIONS */
             if(redirectRoute) router.push(redirectRoute);
+            return true;
 
         }catch(err: any){
             showNotification({

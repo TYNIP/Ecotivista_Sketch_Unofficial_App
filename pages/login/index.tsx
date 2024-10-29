@@ -11,14 +11,19 @@ export default function LoginPage () {
   const authfetch = useAuthFetch();
 
   const login = async (formData: any)=>{
-    startLoading()
-    await authfetch({
-      endpoint: 'login',
-      redirectRoute: '/',
-      formData
-    });
-    finishLoading()
-    setTimeout(()=>window.location.reload(), 200);
+    try{
+      startLoading()
+      const res = await authfetch({
+        endpoint: 'login',
+        redirectRoute: '/',
+        formData
+      });
+      finishLoading()
+      if(res){
+        setTimeout(()=>window.location.reload(), 2000);
+      }
+    } catch(err){
+    }
   }
 
   return (

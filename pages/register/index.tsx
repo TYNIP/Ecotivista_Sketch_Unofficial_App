@@ -4,6 +4,8 @@ import Meta from '../../components/seo/Meta';
 import {Form} from '../../components/forms/index';
 import {useAuthFetch} from '../api/hooks/useAuthFetch';
 import {useLoading} from '../api/hooks/useLoading';
+import { PassThrough } from 'stream';
+import { trusted } from 'mongoose';
 const {PATHURL} = require('../api/config');
 
 export default function RegisterPage () {
@@ -11,14 +13,19 @@ export default function RegisterPage () {
   const authfetch = useAuthFetch();
 
   const register = async (formData: any)=>{
-    startLoading()
-    await authfetch({
-      endpoint: 'register',
-      redirectRoute: '/',
-      formData
-    });
-    finishLoading()
-    setTimeout(()=>window.location.reload(), 200);
+    try{
+      startLoading()
+      const res = await authfetch({
+        endpoint: 'register',
+        redirectRoute: '/',
+        formData
+      });
+      finishLoading()
+      if(res){
+        setTimeout(()=>window.location.reload(), 2000);
+      }
+    } catch(err){
+    }
   }
 
   return (
@@ -37,11 +44,19 @@ export default function RegisterPage () {
           name='email' 
           placeholder='Escriba su email...' 
           type='text'/>
+
+          <Form.Input 
+          label='Username' 
+          name='username' 
+          placeholder='Escriba un nombre de usuario...' 
+          type='text'/>
+
           <Form.Input 
           label='Contraseña' 
           name='password' 
           placeholder='Contraseña...' 
           type='password'/>
+
           <Form.Input 
           label='Confirmar Contraseña' 
           name='confirmPassword' 

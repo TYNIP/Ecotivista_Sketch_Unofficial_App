@@ -22,7 +22,7 @@ export async function checkStatus() {
 
     const data = await res.json();
 
-    return { isAuthorized: data.isAuthorized, username: data.username };
+    return { isAuthorized: data.isAuthorized, username: data.username, email: data.email };
   } catch (err) {
     window.location.href = '/login';
   }

@@ -5,18 +5,19 @@ export const msg = {
         emailNotValid: 'Email no Valido',
         pwdNotMatch: 'Contraseñas No Coinciden',
         emailExists: 'Email ya existe',
+        usernameExists: "Usuario ya existente",
         userNotFound: 'Usuario No Encontrado',
         incorrect: 'Usuario o contraseña incorrecta',
         notAuthorized: 'Usuario no autorizado',
         tokenNotValid: 'Token Invalido',
-        logOutError: 'Un Error Ocurrió mientras registrandose',
+        logOutError: 'Un Error Ocurrió mientras cerrando la sesión',
     },
     success:{
-        userCreated: 'Usuario Creado Exitosamente',
-        userLogged: 'Usuario Registrado Exitosamente',
+        userCreated: 'Registro Exitoso. - REDIRIGIENDO...',
+        userLogged: 'Inicio de Sesión Exitosa. - REDIRIGIENDO...',
         emailSent:'Email Mandado Exitosamente',
-        pwdChanged: 'Contraseña Cambiada Exitosamente',
+        pwdChanged: 'Cambio de Contraseña Exitosa',
         authorized: 'Autorizado',
-        logout: 'Cierre de Sesión Exitosamente'
+        logout: 'Cierre de Sesión Exitosa. - REDIRIGIENDO...'
     }
 }
