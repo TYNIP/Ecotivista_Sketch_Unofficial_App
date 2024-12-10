@@ -8,6 +8,8 @@ export interface IUser{
     createAt?: string; 
     updatedAt?: string;
     userLogStatus: Boolean;
+    description?: string;
+    socialMedia?: Array<3>;
 }
 
 export interface IUserSchema extends Document{
@@ -18,6 +20,8 @@ export interface IUserSchema extends Document{
     createAt?: string; 
     updatedAt?: string;
     userLogStatus: Boolean;
+    description?: string;
+    socialMedia?: Array<3>;
 }
 
 const UserSchema: Schema = new Schema ({
@@ -39,6 +43,16 @@ const UserSchema: Schema = new Schema ({
         type: Boolean,
         default: false,
         required: true,
+    },
+    description:{
+        type: String,
+        required: false,
+        unique: false
+    },
+    socialMedia:{
+        type: Array<3>,
+        required: false,
+        unique: false
     },
     },
     {

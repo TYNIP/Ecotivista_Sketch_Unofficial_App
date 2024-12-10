@@ -40,6 +40,9 @@ STYLE INFO
 GENERAL: Scheherazade New
 
 */
+*{
+border: 1px solid green;
+}
 
 body, html{
   color: black;

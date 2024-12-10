@@ -1,24 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from './CreateArticle.module.scss';
+import { useAuth } from '../../pages/api/context/AuthContext';
 
 const CreateArticle = () => {
+  const {username} = useAuth();
   const [title, setTitle] = useState(""); 
+  const [author, setAuthor] = useState(""); 
   const [sections, setSections] = useState<any[]>([]);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false); 
 
-  // Handle section addition (text, image, video)
+  useEffect(()=>{
+    setAuthor(username);
+  },[username]);
+
+  // Handler section addition (text, image, video)
   const handleAddSection = (type: string) => {
     setSections([...sections, { type, content: "" }]);
   };
 
-  // Handle section updates (text, image, video)
+  // Handler section updates (text, image, video)
   const handleUpdateSection = (index: number, content: string) => {
     const updatedSections = [...sections];
     updatedSections[index].content = content;
     setSections(updatedSections);
   };
 
-  // Handle image upload
+  // Handler image upload
   const handleImageUpload = (index: number, file: File) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -27,7 +34,7 @@ const CreateArticle = () => {
     reader.readAsDataURL(file); // Convert to Base64 for preview
   };
 
-  // Remove section
+  // Handler remove section
   const handleRemoveSection = (index: number) => {
     const updatedSections = sections.filter((_, i) => i !== index);
     setSections(updatedSections);
@@ -50,7 +57,8 @@ const CreateArticle = () => {
 
   // Submit the article
   const handleSubmit = async () => {
-    const data = { title, sections };
+    const data = { title, author, sections };
+    console.log("data",data)
     
     const response = await fetch("/api/articles", {
       method: "POST",

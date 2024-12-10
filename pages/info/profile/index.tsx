@@ -1,59 +1,137 @@
-import { useEffect, useState } from 'react';
-import styles from './index.module.scss';
-import {getData} from '../../api/datahooks/profile';
-import dateTransform from '../../api/utils/dateTransform';
-import SocialMedia from '../../../components/ui/SocialMedia';
-import { useAuth } from '../../api/context/AuthContext';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import styles from "./index.module.scss";
+import SocialMedia from "../../../components/ui/SocialMedia";
+import { useAuth } from "../../api/context/AuthContext";
+import axios from "axios";
 
 export default function ProfilePage() {
-  const {username, email} = useAuth();
+  const { username, email } = useAuth();
+
+  const [editMode, setEditMode] = useState(false);
+  const [profilePicture, setProfilePicture] = useState("");
+  const [coverPhoto, setCoverPhoto] = useState("");
+  const [description, setDescription] = useState("");
+  const [likedIn, setLikedIn] = useState("");
+  const [instagram, setInstagram] = useState("");
+  const [yt, setYt] = useState("");
+
+  const [newProfilePicture, setNewProfilePicture] = useState(null);
+  const [newCoverPhoto, setNewCoverPhoto] = useState(null);
+
+  useEffect(() => {
+    // Fetch user data from API
+    async function fetchData() {
+      const { data } = await axios.get("/api/user/profile");
+      setProfilePicture(data.profilePicture);
+      setCoverPhoto(data.coverPhoto);
+      setDescription(data.description);
+      setLikedIn(data.likedIn);
+      setInstagram(data.instagram);
+      setYt(data.yt);
+    }
+    fetchData();
+  }, []);
+
+  const handleSave = async () => {
+    const formData = new FormData();
+    formData.append("description", description);
+    formData.append("likedIn", likedIn);
+    formData.append("instagram", instagram);
+    formData.append("yt", yt);
+    if (newProfilePicture) formData.append("profilePicture", newProfilePicture);
+    if (newCoverPhoto) formData.append("coverPhoto", newCoverPhoto);
+
+    try {
+      await axios.post("/api/user/update", formData);
+      setEditMode(false);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleCancel = () => {
+    setEditMode(false);
+    setNewProfilePicture(null);
+    setNewCoverPhoto(null);
+  };
+
   return (
     <div className={styles.container}>
-      {/* Cover photo */}
       <div className={styles.coverPhoto}>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnmGpWbfYyZNikb7ZQNPe2trzc8pCgNHTn6g&s" 
-          alt="Cover"
-          layout="fill"
-          objectFit="cover"
-          priority
-        />
+        {editMode ? (
+          <input
+            type="file"
+            onChange={(e) => setNewCoverPhoto(e.target.files[0])}
+          />
+        ) : (
+          <img src={coverPhoto} alt="Cover" />
+        )}
       </div>
 
-      {/* Profile picture */}
       <div className={styles.profilePicture}>
-        <img
-          src="https://ih1.redbubble.net/image.5077640931.1602/raf,360x360,075,t,fafafa:ca443f4786.jpg" 
-          alt="Profile"
-          width={160}
-          height={160}
-          className={styles.profileImg}
-        />
+        {editMode ? (
+          <input
+            type="file"
+            onChange={(e) => setNewProfilePicture(e.target.files[0])}
+          />
+        ) : (
+          <img src={profilePicture} alt="Profile" />
+        )}
       </div>
 
       <div className={styles.secContainer}>
         <div className={styles.info}>
-          {/* User Info */}
           <div className={styles.userInfo}>
-            <h1 className={styles.username}>{username}</h1>
+            <h1>{username}</h1>
           </div>
 
-          {/* Summary Section */}
           <div className={styles.summarySection}>
-            <p className={styles.summary}>
-            Software and Mechatronic Junior @TEC CCM | "My vision is to empower people to engage in sustainability and social impact projects, fostering a more united community where every voice matters. Where there’s a dream of change, there’s a future."
-            </p>
-            <p className={styles.summary}>
-              Email: {email}
-            </p>
+            {editMode ? (
+              <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            ) : (
+              <p>{description}</p>
+            )}
           </div>
         </div>
+
         <div className={styles.media}>
-          <SocialMedia/>
+          {editMode ? (
+            <>
+              <input
+                placeholder="LinkedIn"
+                value={likedIn}
+                onChange={(e) => setLikedIn(e.target.value)}
+              />
+              <input
+                placeholder="Instagram"
+                value={instagram}
+                onChange={(e) => setInstagram(e.target.value)}
+              />
+              <input
+                placeholder="YouTube"
+                value={yt}
+                onChange={(e) => setYt(e.target.value)}
+              />
+            </>
+          ) : (
+            <SocialMedia links={{ likedIn, instagram, yt }} />
+          )}
         </div>
       </div>
 
+      <div className={styles.buttons}>
+        {editMode ? (
+          <>
+            <button onClick={handleSave}>Save Changes</button>
+            <button onClick={handleCancel}>Cancel</button>
+          </>
+        ) : (
+          <button onClick={() => setEditMode(true)}>Edit Mode</button>
+        )}
+      </div>
     </div>
   );
 }

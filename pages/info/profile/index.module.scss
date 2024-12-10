@@ -47,6 +47,9 @@
   justify-items: center;
   align-items: start;
 }
+.info *{
+  width: 100% !important;
+}
 
 .media{
   display: flex;
@@ -56,12 +59,18 @@
 }
 
 .userInfo {
-  text-align: center;
 
   .username {
     font-size: 5vh;
     font-weight: bold;
     width: auto;
+    text-align: left;
+  }
+  .sub {
+    font-size: 4vh;
+    width: auto;
+    font-style: italic;
+    text-align: center;
   }
 
   .jobTitle {
@@ -110,7 +119,6 @@
 
 .summarySection {
   width: 100%;
-  max-width: 800px;
   text-align: left;
 
   h2 {

@@ -1,8 +1,18 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema, model, models } from 'mongoose';
 
-const ArticleSchema = new mongoose.Schema({
-  sections: Array,
-  createdAt: Date,
+const SectionSchema = new Schema({
+  type: { type: String, required: true },
+  content: { type: String, required: true },
 });
 
-export default mongoose.models.Article || mongoose.model('Article', ArticleSchema);
+const ArticleSchema = new Schema({
+  title: { type: String, required: true },
+  author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, 
+  sections: [SectionSchema],
+  createdAt: { type: Date, default: Date.now },
+});
+
+
+const Article = models.Article || model('Article', ArticleSchema);
+
+export default Article;
