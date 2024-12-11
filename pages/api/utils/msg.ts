@@ -22,5 +22,6 @@ export const msg = {
         authorized: 'Autorizado',
         logout: 'Cierre de Sesión Exitosa. - REDIRIGIENDO...',
         articleCreated: 'Articulo Publicado con Exito!',
+        updated: "Se Actualizó con Exito"
     }
 }

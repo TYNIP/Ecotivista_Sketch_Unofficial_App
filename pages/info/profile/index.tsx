@@ -3,47 +3,81 @@ import styles from "./index.module.scss";
 import SocialMedia from "../../../components/ui/SocialMedia";
 import { useAuth } from "../../api/context/AuthContext";
 import axios from "axios";
+import {getCookie} from "../../api/functions/getCookie";
+import Image from "next/image";
 
 export default function ProfilePage() {
-  const { username, email } = useAuth();
+  const { username } = useAuth();
 
   const [editMode, setEditMode] = useState(false);
   const [profilePicture, setProfilePicture] = useState("");
   const [coverPhoto, setCoverPhoto] = useState("");
   const [description, setDescription] = useState("");
-  const [likedIn, setLikedIn] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
   const [instagram, setInstagram] = useState("");
   const [yt, setYt] = useState("");
 
   const [newProfilePicture, setNewProfilePicture] = useState(null);
   const [newCoverPhoto, setNewCoverPhoto] = useState(null);
 
-  useEffect(() => {
-    // Fetch user data from API
-    async function fetchData() {
-      const { data } = await axios.get("/api/user/profile");
+
+  // Fetch user data from API
+  async function fetchData() {
+    try {
+      const token = getCookie();
+      const response = await fetch(`/api/user/profile`, {
+        headers: {
+          token: token?.cookie || undefined,
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const user = await response.json();
+      const data = user.user;
+  
+      console.log("profile data", data);
+  
+      // Update state variables
       setProfilePicture(data.profilePicture);
       setCoverPhoto(data.coverPhoto);
       setDescription(data.description);
-      setLikedIn(data.likedIn);
-      setInstagram(data.instagram);
-      setYt(data.yt);
+      setLinkedIn(data.socialMedia.linkedIn);
+      setInstagram(data.socialMedia.instagram);
+      setYt(data.socialMedia.youtube);
+    } catch (err) {
+      console.error("Error fetching profile data:", err);
     }
+  }
+  
+
+  useEffect(() => {
     fetchData();
   }, []);
 
   const handleSave = async () => {
     const formData = new FormData();
     formData.append("description", description);
-    formData.append("likedIn", likedIn);
+    formData.append("linkedIn", linkedIn);
     formData.append("instagram", instagram);
     formData.append("yt", yt);
     if (newProfilePicture) formData.append("profilePicture", newProfilePicture);
     if (newCoverPhoto) formData.append("coverPhoto", newCoverPhoto);
 
     try {
-      await axios.post("/api/user/update", formData);
+      const token = getCookie()
+      console.log(formData, newProfilePicture, newCoverPhoto)
+      await fetch(`/api/user/update`,{
+        method: "POST",
+        headers: {
+            token: token.cookie || undefined
+        },
+        body: formData
+    });
       setEditMode(false);
+      fetchData();
     } catch (err) {
       console.error(err);
     }
@@ -64,7 +98,7 @@ export default function ProfilePage() {
             onChange={(e) => setNewCoverPhoto(e.target.files[0])}
           />
         ) : (
-          <img src={coverPhoto} alt="Cover" />
+          <Image src={coverPhoto} alt="Cover" />
         )}
       </div>
 
@@ -75,7 +109,7 @@ export default function ProfilePage() {
             onChange={(e) => setNewProfilePicture(e.target.files[0])}
           />
         ) : (
-          <img src={profilePicture} alt="Profile" />
+          <Image src={profilePicture} alt="Profile" />
         )}
       </div>
 
@@ -102,8 +136,8 @@ export default function ProfilePage() {
             <>
               <input
                 placeholder="LinkedIn"
-                value={likedIn}
-                onChange={(e) => setLikedIn(e.target.value)}
+                value={linkedIn}
+                onChange={(e) => setLinkedIn(e.target.value)}
               />
               <input
                 placeholder="Instagram"
@@ -117,7 +151,7 @@ export default function ProfilePage() {
               />
             </>
           ) : (
-            <SocialMedia links={{ likedIn, instagram, yt }} />
+            <SocialMedia links={{ linkedIn, instagram, yt }} />
           )}
         </div>
       </div>

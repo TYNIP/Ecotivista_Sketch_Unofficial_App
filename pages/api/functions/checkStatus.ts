@@ -1,4 +1,4 @@
-// functions/checkStatus.ts
+
 "use client"
 
 const { PATHURL } = require('../../api/config');

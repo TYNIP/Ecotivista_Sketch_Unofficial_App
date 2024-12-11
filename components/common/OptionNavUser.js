@@ -41,17 +41,16 @@ const OptionNavUser = ({setOptions})=>{
   
     const logout = async ()=>{
       try{
-        console.log('logout');
-
       const res = await authfetch({
         endpoint: 'logout',
         redirectRoute: '/',
         formData: 'Closing Session',
       });
 
-      console.log(res)
+      console.log(res);
+
       if(res){
-        
+        setTimeout(()=>window.location.reload(), 2000);
       }
 
       setOptions(false)
@@ -67,7 +66,7 @@ const OptionNavUser = ({setOptions})=>{
           <Link href="/info/profile" onClick={()=>setOptions(false)}>Perfil </Link>
           <Link href="/info/articles" onClick={()=>setOptions(false)}>Mis Articulos </Link>
           <Link href="/info/articles/publisher" onClick={()=>setOptions(false)}>Publicista </Link>
-          <Link href="" onClick={()=>logout()}>Cerrar Sesión</Link>
+          <Link href="/" onClick={()=>logout()}>Cerrar Sesión</Link>
         </OptionsBannerRight>
         <Courtain onClick={()=>setOptions(false)} />
       </>
