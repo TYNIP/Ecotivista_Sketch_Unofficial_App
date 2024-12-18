@@ -7,11 +7,10 @@ import Warning from '../ui/Warning';
 import {NotificationProvider} from '../../pages/api/context/NotificationContext';
 
 
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100vh !important;
 `;
 
 const Main = styled.main`
@@ -19,6 +18,12 @@ const Main = styled.main`
   margin: 2% 5%
 
 `;
+const Content = styled.section`
+  flex: 1;
+  margin: 0
+
+`;
+
 
 
 const generalNotifications = [{msg: 'hola', color:'green'}, {msg:'ah', color:'red'}];
@@ -33,7 +38,19 @@ const MainLayout = ({ children }) => (
             <Warning key={key} message={notification.msg} bkg={notification.color}/>
           })
         )}
-        <Main>{children}</Main>
+      
+            <Main>
+              
+              
+            <section id="content-wrapper">
+              <section className='ad'>HELLO</section>
+                <Content>{children}</Content>
+              <section className='ad'>HELLO</section>
+            </section>
+
+
+            </Main>
+          
       </NotificationProvider>
     <Footer />
   </Container>

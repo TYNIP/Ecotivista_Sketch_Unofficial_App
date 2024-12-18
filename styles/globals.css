@@ -40,9 +40,9 @@ STYLE INFO
 GENERAL: Scheherazade New
 
 */
-*{
+/* *{
 border: 1px solid green;
-}
+} */
 
 body, html{
   color: black;
@@ -180,3 +180,14 @@ button {
 .article-detail .content {
   margin-top: 20px;
 }
+
+/* CONTENT Wrapper */
+
+#content-wrapper{
+  display: flex;
+}
+
+.ad{
+  width: 10%;
+}
+

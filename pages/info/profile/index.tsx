@@ -5,13 +5,15 @@ import { useAuth } from "../../api/context/AuthContext";
 import axios from "axios";
 import {getCookie} from "../../api/functions/getCookie";
 import Image from "next/image";
+const defCover = require("../../../public/assets/default_coverpage.jpg");
+const defProfile = require("../../../public/assets/default_profilepicture.jpg");
 
 export default function ProfilePage() {
   const { username } = useAuth();
 
   const [editMode, setEditMode] = useState(false);
-  const [profilePicture, setProfilePicture] = useState("");
-  const [coverPhoto, setCoverPhoto] = useState("");
+  const [profilePicture, setProfilePicture] = useState(defProfile);
+  const [coverPhoto, setCoverPhoto] = useState(defCover);
   const [description, setDescription] = useState("");
   const [linkedIn, setLinkedIn] = useState("");
   const [instagram, setInstagram] = useState("");
@@ -36,17 +38,21 @@ export default function ProfilePage() {
       }
   
       const user = await response.json();
-      const data = user.user;
+      const data = user;
   
       console.log("profile data", data);
   
       // Update state variables
-      setProfilePicture(data.profilePicture);
-      setCoverPhoto(data.coverPhoto);
       setDescription(data.description);
       setLinkedIn(data.socialMedia.linkedIn);
       setInstagram(data.socialMedia.instagram);
       setYt(data.socialMedia.youtube);
+      if(data.profilePicture){
+        setProfilePicture(data.profilePicture);
+      };
+      if(data.coverPhoto){
+        setCoverPhoto(data.coverPhoto);
+      }
     } catch (err) {
       console.error("Error fetching profile data:", err);
     }
@@ -98,7 +104,7 @@ export default function ProfilePage() {
             onChange={(e) => setNewCoverPhoto(e.target.files[0])}
           />
         ) : (
-          <Image src={coverPhoto} alt="Cover" />
+          <Image src={coverPhoto} alt="Cover Page" width={"100"} height={"100"}/>
         )}
       </div>
 
@@ -109,7 +115,7 @@ export default function ProfilePage() {
             onChange={(e) => setNewProfilePicture(e.target.files[0])}
           />
         ) : (
-          <Image src={profilePicture} alt="Profile" />
+          <Image src={profilePicture} alt="Profile" width={"100"} height={"100"}/>
         )}
       </div>
 
@@ -126,7 +132,7 @@ export default function ProfilePage() {
                 onChange={(e) => setDescription(e.target.value)}
               />
             ) : (
-              <p>{description}</p>
+              <p>{(description === undefined || description ==='undefined')? "Escribe algo sobre ti aqui. Quién eres? Qué es lo que haces? ...":description}</p>
             )}
           </div>
         </div>

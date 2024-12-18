@@ -1,20 +1,16 @@
-/* CHECK */
-import {connectMongoDB} from '../../libs/mongodb';
+import { connectMongoDB } from '../../libs/mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {msg} from '../../utils/msg';
+import { msg } from '../../utils/msg';
 import User from '../../models/User';
 import jwt from 'jsonwebtoken';
-const {SECRET} = require('../../config');
+import mongoose from 'mongoose';
 
-/* GET USER INFO */
-export default async function GET(
-    req: NextApiRequest,
-    res: NextApiResponse, 
-){
+const { SECRET } = require('../../config');
+
+export default async function GET(req: NextApiRequest, res: NextApiResponse) {
     try {
         const token = req.headers.token as string | undefined;
-        console.log(token);
-        if(!token) {
+        if (!token) {
             return res.status(400).json({
                 message: msg.error.notAuthorized,
             });
@@ -23,26 +19,38 @@ export default async function GET(
         try {
             const isTokenValid = jwt.verify(token, SECRET);
             //@ts-ignore
-            const {data} = isTokenValid;
+            const { data } = isTokenValid;
             await connectMongoDB();
 
-            const user = await User.findById(data._id).select("-password");
-
-            if(!user) {
+            const user = await User.findById(data._id).select('-password');
+            if (!user) {
                 return res.status(400).json({
                     message: msg.error.userNotFound,
                 });
             }
 
-            res.status(200).json({user});
+            // Transform GridFS ObjectId into a public URL
+            const transformFileIdToUrl = (fileId: mongoose.Types.ObjectId | undefined) => {
+                if (!fileId) return null;
+                return `/api/files/${fileId.toString()}`;
+            };
 
-        } catch(err) {
+            const userWithUrls = {
+                ...user.toObject(),
+                profilePicture: transformFileIdToUrl(user.profilePicture),
+                coverPhoto: transformFileIdToUrl(user.coverPhoto),
+            };
+
+            console.log(userWithUrls)
+            return res.status(200).json(userWithUrls);
+        } catch (err) {
+            console.error(err);
             return res.status(500).json({
                 message: msg.error.tokenNotValid,
             });
         }
-
     } catch (err) {
+        console.error(err);
         return res.status(500).json({
             message: msg.error.default,
         });

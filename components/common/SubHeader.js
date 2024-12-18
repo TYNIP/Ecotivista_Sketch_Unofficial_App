@@ -68,7 +68,7 @@ const IconNotifications = () =>{
   )
 }
 
-const options = ['Paris', 'Olimpics', 'The End', 'Ecology', 'Apple pie', 'Japan Market']
+const options = ['Manifesto', 'Equipo', 'Periodismo', 'Activismo', 'Educación', 'Contactanos']
 
 
 const Header = () => {
