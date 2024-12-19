@@ -51,14 +51,14 @@ const Footer = () => {
         <SqInfo>
           <p>Ecotivista</p>
           <Link href="/about">Sobre Ecotivista</Link>
-          <Link href="/">Periodismo</Link>
-          <Link href="/">Activismo</Link>
-          <Link href="/">Educación</Link>
+          <Link href="/about/journalism">Periodismo</Link>
+          <Link href="/about/activism">Activismo</Link>
+          <Link href="/about/education">Educación</Link>
         </SqInfo>
 
         <SqInfo>
           <p>Contactanos</p>
-          <Link href="/">Mandanos un Email</Link>
+          <Link href="/about/contact">Mandanos un Email</Link>
         </SqInfo>
 
         <SqInfo>
@@ -68,9 +68,9 @@ const Footer = () => {
 
         <SqInfo>
           <p>Terminos de Uso</p>
-          <Link href="/">Terminos del Servicio</Link>
-          <Link href="/">Politica de Privacidad</Link>
-          <Link href="/">Configuración de Cookies</Link>
+          <Link href="/terms-service">Terminos del Servicio</Link>
+          <Link href="/terms-service/privacy-policy">Politica de Privacidad</Link>
+          <Link href="/terms-service/config-cookies">Configuración de Cookies</Link>
         </SqInfo>
 
         <SqInfo>

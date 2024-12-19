@@ -44,6 +44,12 @@ GENERAL: Scheherazade New
 border: 1px solid green;
 } */
 
+*{
+  /* border: 1px solid white; */
+  scroll-behavior: smooth !important;
+  box-sizing: border-box !important;
+}
+
 body, html{
   color: black;
   background-color: #ffffff;
@@ -51,6 +57,7 @@ body, html{
   margin: 0;
   padding: 0;
 }
+
 
 #mainName{
   font-family: "Bodoni Moda SC", serif;

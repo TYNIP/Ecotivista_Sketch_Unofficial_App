@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import { useState, useEffect } from "react";
+import { usePathname } from 'next/navigation';
 
 const SubHeader = styled.div`
   display: flex;
@@ -70,12 +72,41 @@ const IconNotifications = () =>{
 
 const options = ['Manifesto', 'Equipo', 'Periodismo', 'Activismo', 'Educación', 'Contactanos']
 
+function getOptions(path){
+  path = path.split('/')
+  switch(path[1]){
+    case "about":
+      return [
+              {path: 'Manifesto', link: '/about'}, 
+              {path: 'Equipo', link: '/about/team'},
+              {path: 'Periodismo', link: '/about/journalism'},
+              {path: 'Activismo', link: '/about/activism'},
+              {path: 'Educación', link: '/about/education'},
+              {path: 'Contactanos', link: '/about/contact'}
+            ]
+    default:
+      return [
+              {path: 'Sustentabilidad', link: '/about'}, 
+              {path: 'Social', link: '/about/team'},
+              {path: 'Activismo', link: '/about/activism'},
+              {path: 'Educación', link: '/about/education'}
+            ]
+  }
+}
+
 
 const Header = () => {
+  const [options, setOptions] = useState([]);
+  const pathname = usePathname();
+
+  useEffect(()=>{
+    setOptions(getOptions(pathname))
+  },[pathname]);
+
   return (
     <SubHeader>
       <SubNav>
-        {options.map((option, key) => <Link href="/" key={key}>{option}</Link>)}
+        {options.map((option, key) => <Link href={`${option.link}`} key={key}>{option.path}</Link>)}
       </SubNav>
     </SubHeader>
   );

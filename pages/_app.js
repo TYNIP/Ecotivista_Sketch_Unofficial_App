@@ -2,14 +2,21 @@
 import '../styles/globals.css';
 import MainLayout from '../components/layout/MainLayout';
 import { AuthProvider } from './api/context/AuthContext';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AuthProvider>
-      <MainLayout>
-        <Component {...pageProps} />
-      </MainLayout>
-    </AuthProvider>
+    <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <AuthProvider>
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
+      </AuthProvider>
+    </>
   );
 }
 

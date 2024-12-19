@@ -34,18 +34,18 @@ const MainLayout = ({ children }) => (
     <SubHeader/>
       <NotificationProvider>
         {generalNotifications.length > 0 && (
-          generalNotifications.map((notification, key)=>{
-            <Warning key={key} message={notification.msg} bkg={notification.color}/>
-          })
+          generalNotifications.map((notification, key)=>
+          <Warning key={key} message={notification.msg} bkg={notification.color}/>
+          )
         )}
       
             <Main>
               
               
             <section id="content-wrapper">
-              <section className='ad'>HELLO</section>
+              <section className='ad'></section>
                 <Content>{children}</Content>
-              <section className='ad'>HELLO</section>
+              <section className='ad'></section>
             </section>
 
 

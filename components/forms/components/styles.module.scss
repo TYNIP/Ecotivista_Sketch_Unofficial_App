@@ -21,6 +21,30 @@
 };
 }
 
+.textAreaContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    label{
+        font-size: 14px;
+        font-weight: 600;
+    };
+
+    textarea{
+        padding: 0.6rem 1rem;
+        border: 0.5px solid #878787;
+        font-size: 14px;
+        border-radius: 6px;
+        transition-duration: 0.3s;
+        outline: 0.5px solid transparent;
+        min-height: 200px;
+     &:focus{
+        outline: 1.5px solid black;
+    }
+};
+}
+
 .submitButton{
     margin-top: 1rem;
     width: 100%;
