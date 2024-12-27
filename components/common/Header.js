@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { useState } from "react";
-import { useRouter } from 'next/navigation'
-import { useAuth } from '../../pages/api/context/AuthContext';
+import { useRouter } from 'next/navigation';
 import OptionNav from './OptionNav';
 import OptionNavUser from './OptionNavUser';
 import {IconItems, IconNotifications, IconSearch, IconUser} from "../utils/icons";
@@ -15,7 +14,7 @@ const HeaderContainer = styled.header`
   background-color: white;
   border: 1px solid rgba(0,0,0, 0.1);
   position: sticky;
-  z-index: 2000; 
+  z-index: 20000; 
   top: 0;
   height: 70px;
 `;
@@ -67,13 +66,10 @@ width: 100%;
 text-align: center;
 `
 
-const Header = () => {
+const Header = ({isAuthenticated}) => {
   const router = useRouter()
   const [options, setOptions] = useState(false);
   const [optionsUser, setOptionsUser] = useState(false);
-  const { isAuthenticated, loading } = useAuth();
-
-  console.log("from header", isAuthenticated, loading)
 
   function changeNavDisplay(){
     setOptions(!options)

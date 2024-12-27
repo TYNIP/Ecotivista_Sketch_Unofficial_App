@@ -4,6 +4,7 @@ export interface ISocialMedia {
   linkedIn?: string;
   instagram?: string;
   youtube?: string;
+  tiktok?: string;
 }
 
 export interface IUser {
@@ -38,6 +39,7 @@ const SocialMediaSchema: Schema = new Schema({
   linkedIn: { type: String, required: false },
   instagram: { type: String, required: false },
   youtube: { type: String, required: false },
+  tiktok: { type: String, required: false },
 });
 
 const UserSchema: Schema = new Schema(

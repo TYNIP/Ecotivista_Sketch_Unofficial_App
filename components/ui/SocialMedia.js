@@ -63,13 +63,13 @@ const TikTok = ({link})=>{
 }
 
 
-export default function SocialMedia({likedIn = "company/ecotivista", instagram = "ecotivista_/", yt = "@ecotivista?si=W4jIwKrRgtaSg63y", tiktok = "@ecotivista"}){
+export default function SocialMedia(data){
     return(
         <SocialStyle>
-            <LinkedIn link={likedIn}/>
-            <Instagram link={instagram}/>
-            <Youtube link={yt}/>
-            <TikTok link={tiktok}/>
+            {data.links.linkedIn? <LinkedIn link={data.links.linkedIn}/> : <></>}
+            {data.links.instagram? <Instagram link={data.links.instagram}/> : <></>}
+            {data.links.yt? <Youtube link={data.links.yt}/> : <></>}
+            {data.links.tiktok? <TikTok link={data.links.tiktok}/> : <></>}
         </SocialStyle>
     )
 } 

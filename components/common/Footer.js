@@ -75,7 +75,7 @@ const Footer = () => {
 
         <SqInfo>
           <p>Redes Sociales</p>
-          <SocialMedia/>
+          <SocialMedia links={{ linkedIn: "company/ecotivista", instagram: "ecotivista_/", yt: "@ecotivista?si=W4jIwKrRgtaSg63y", tiktok:"@ecotivista" }}/>
         </SqInfo>
 
       </FooterInfo>

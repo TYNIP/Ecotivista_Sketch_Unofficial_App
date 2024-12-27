@@ -6,7 +6,7 @@ const OptionsBannerRight = styled.div`
 position: fixed;
 top: 70px;
 right: 0;
-z-index: 1000;
+z-index: 40000;
 display: flex;
 flex-direction: column;
 background-color: white;
@@ -30,7 +30,7 @@ a {
 
 const Courtain = styled.div`
   position: absolute;
-  z-index: 999;
+  z-index: 30000;
   background-color:rgba(0,0,0, 0.1);
   width: 100%;
   height: 100vh;

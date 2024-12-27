@@ -10,7 +10,8 @@ const SubHeader = styled.div`
   justify-content: center;
   border: 1px solid rgba(0,0,0, 0.1);
   position: sticky;
-  top: 70px;
+  z-index: 20000;
+  top: 55px;
   background-color: white;
   padding: 0 20px 0 20px;
 `
@@ -70,7 +71,6 @@ const IconNotifications = () =>{
   )
 }
 
-const options = ['Manifesto', 'Equipo', 'Periodismo', 'Activismo', 'Educación', 'Contactanos']
 
 function getOptions(path){
   path = path.split('/')
