@@ -1,7 +1,7 @@
 /* ABOUT */
 import Meta from '../../components/seo/Meta';
 const { PATHURL } = require('../api/config');
-import styles from './index.module.scss';
+import styles from '../../styles/index.module.scss';
 const Logo = require("../../public/assets/ecotivistalogo.jpg");
 import Image from "next/image";
 

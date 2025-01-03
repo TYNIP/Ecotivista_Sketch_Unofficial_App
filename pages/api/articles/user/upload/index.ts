@@ -1,9 +1,9 @@
 /* CREATE ARTICLE */
-import { connectMongoDB } from '../libs/mongodb';
+import { connectMongoDB } from '../../../libs/mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import Article from '../models/articles'; 
-import User, {IUserSchema} from '../models/User';
-import { msg } from '../utils/msg';
+import Article from '../../../models/articles'; 
+import User, {IUserSchema} from '../../../models/User';
+import { msg } from '../../../utils/msg';
 
 export default async function POST(req: NextApiRequest, res: NextApiResponse) {
   try {

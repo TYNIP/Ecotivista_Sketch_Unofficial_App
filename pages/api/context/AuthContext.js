@@ -1,7 +1,5 @@
 // context/AuthContext.js
 import { createContext, useContext, useEffect, useState } from 'react';
-import axios from 'axios';
-const {PATHURL} = require('../config');
 const {checkStatus} = require('../functions/checkStatus');
 
 const AuthContext = createContext();
@@ -10,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] =  useState('');
   const [email, setEmail] = useState('');
+  const [id, setId] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,11 +16,13 @@ export const AuthProvider = ({ children }) => {
       try {
 
         const res = await checkStatus();
+        console.log("helloooo", res);
 
         if (res.isAuthorized) {
           setIsAuthenticated(true);
           setUsername(res.username);
           setEmail(res.email);
+          setId(res.id);
         } else {
           setIsAuthenticated(false);
         }
@@ -36,7 +37,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, loading, username: username, email: email }}>
+    <AuthContext.Provider value={{ isAuthenticated, loading, username: username, email: email, id: id }}>
       {children}
     </AuthContext.Provider>
   );

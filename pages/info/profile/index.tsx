@@ -1,6 +1,8 @@
 import { useState, useMemo } from "react";
+import { useRouter } from 'next/navigation';
 import styles from "./index.module.scss";
 import SocialMedia from "../../../components/ui/SocialMedia";
+import UserArticles from "@/components/articles/user";
 import { useAuth } from "../../api/context/AuthContext";
 import {getCookie} from "../../api/functions/getCookie";
 import Image from "next/image";
@@ -9,8 +11,8 @@ const defProfile = require("../../../public/assets/default_profilepicture.jpg");
 import {Loader} from "../../../components/loader/index";
 
 export default function ProfilePage() {
-  const { username } = useAuth();
-
+  const { username, id } = useAuth();
+  const router = useRouter()
   const [editMode, setEditMode] = useState(false);
   const [profilePicture, setProfilePicture] = useState(defProfile);
   const [coverPhoto, setCoverPhoto] = useState(defCover);
@@ -169,7 +171,7 @@ export default function ProfilePage() {
         <div className={styles.media}>
           {editMode ? (
             <>
-            <p>Usuario</p>
+            <p style={{"marginTop": "5%"}}>Usuario</p>
               <input
                 placeholder="LinkedIn (Ej: in/username/)"
                 value={linkedIn}
@@ -208,6 +210,14 @@ export default function ProfilePage() {
         ) : (
           <button onClick={() => setEditMode(true)} className={styles.primaryButton}>Edit Mode</button>
         )}
+      </div>
+
+      {/* ARTICLES */}
+      <div>
+        <UserArticles id={id} numberOfArticles={6}/>
+        <div className={styles.buttons}>
+          <button onClick={() => router.push("/info/articles")} className={styles.primaryButton}>Más Articulos</button>
+        </div>
       </div>
     </div>
   );

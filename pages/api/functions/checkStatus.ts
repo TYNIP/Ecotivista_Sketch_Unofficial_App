@@ -21,8 +21,8 @@ export async function checkStatus() {
     });
 
     const data = await res.json();
-
-    return { isAuthorized: data.isAuthorized, username: data.username, email: data.email };
+    console.log("the data of data",data)
+    return { isAuthorized: data.isAuthorized, username: data.username, email: data.email, id: data.id };
   } catch (err) {
     window.location.href = '/login';
   }

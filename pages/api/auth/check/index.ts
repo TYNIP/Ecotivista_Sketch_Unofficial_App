@@ -39,7 +39,8 @@ export default async function GET(
                     isAuthorized: true,
                     message: msg.success.authorized,
                     email: data.email,
-                    username: data.username
+                    username: data.username,
+                    id: data._id,
                 },
             )
 

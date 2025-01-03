@@ -60,7 +60,7 @@ const CreateArticle = () => {
     const data = { title, author, sections };
     console.log("data",data)
     
-    const response = await fetch("/api/articles", {
+    const response = await fetch("/api/articles/user/upload", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
