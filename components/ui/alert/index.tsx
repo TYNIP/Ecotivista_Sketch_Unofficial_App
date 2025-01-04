@@ -1,0 +1,46 @@
+import * as React from 'react';
+import {useEffect} from 'react';
+import Box from '@mui/material/Box';
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
+
+export default function TransitionAlerts({status, message, count}:any) {
+  const [open, setOpen] = React.useState(true);
+
+  useEffect(()=>{
+    setOpen(true);
+  },[count]);
+
+  if (status === undefined){
+    return;
+  }
+
+  return (
+    <Box sx={{ width: '100%' }}>
+      <Collapse in={open}>
+        <Alert
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          //@ts-ignore
+          severity={`${status}`}
+          sx={{ mb: 2 }}
+        >
+          {message}
+        </Alert>
+      </Collapse>
+    </Box>
+  );
+}

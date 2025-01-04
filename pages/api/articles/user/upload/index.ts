@@ -7,55 +7,48 @@ import { msg } from '../../../utils/msg';
 
 export default async function POST(req: NextApiRequest, res: NextApiResponse) {
   try {
-    // Connect to MongoDB
     await connectMongoDB();
 
-    const { title, author, sections } = req.body;
+    const { title, author, description, tags, sections } = req.body;
 
-    const userNameFind = await User.findOne({author});
-        if(!userNameFind){
-            return res.status(400).json({
-                message: msg.error.userNotFound,
-            })
-        }
-
-    console.log(userNameFind);
-
-    // Validate required fields
-    if (!title || !author || !sections || !Array.isArray(sections)) {
+    if (!title || !author || !description || !tags || !sections || !Array.isArray(sections)) {
       return res.status(400).json({
         message: msg.error.needProps,
       });
     }
 
-    // Validate sections content
-    for (const section of sections) {
-      if (!section.type || !['text', 'image', 'video'].includes(section.type)) {
-        return res.status(400).json({
-          message: msg.error.invalidSectionType,
-        });
-      }
-      if (!section.content) {
-        return res.status(400).json({
-          message: msg.error.invalidSectionContent,
-        });
-      }
+    if (description.length > 500) {
+      return res.status(400).json({
+        message: "Description exceeds the maximum length of 500 characters.",
+      });
     }
 
-    // Save the article in the database
+    if (!Array.isArray(tags) || tags.length > 10) {
+      return res.status(400).json({
+        message: "Tags must be an array with a maximum of 10 items.",
+      });
+    }
+
+    const userNameFind = await User.findOne({ username: author }).exec();
+    if (!userNameFind) {
+      return res.status(400).json({
+        message: msg.error.userNotFound,
+      });
+    }
+
     const newArticle = new Article({
       title,
       author: userNameFind._id,
+      description,
+      tags,
       sections,
       createdAt: new Date(),
     });
 
-    const savedArticle = await newArticle.save();
+    await newArticle.save();
 
-    // Response
     res.status(200).json({
       message: msg.success.articleCreated,
-      article: savedArticle,
     });
   } catch (err) {
     console.error(err);
