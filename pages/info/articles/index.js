@@ -1,6 +1,6 @@
 import UserArticles from "@/components/articles/user";
 import { useAuth } from "../../api/context/AuthContext";
-import styles from '../../../styles/index.module.scss';
+import styles from '@/styles/index.module.scss';
 
 export default function Publisher(){
     const { id } = useAuth();

@@ -3,14 +3,11 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import Article from '../../models/articles';
 import User from '../../models/User';
 import { msg } from '../../utils/msg';
-import { use } from 'react';
 
 export default async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     await connectMongoDB();
-    console.log("hay00000000000000000000000o")
     const { id } = req.query;
-    console.log("hell000", id);
 
     if (!id) {
       return res.status(400).json({
@@ -29,7 +26,6 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
       });
     }
 
-    console.log("all article",article);
     res.status(200).json(article);
   } catch (err) {
     console.error(err);

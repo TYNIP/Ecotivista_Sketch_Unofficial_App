@@ -15,7 +15,8 @@ export default async function POST(
 ){
     try {
         await connectMongoDB()
-        const {email, password, confirmPassword, username} = req.body;
+        let {email, password, confirmPassword, username} = req.body;
+        username = username.toUpperCase()
 
         //Fields validation
         if(!email || !password || !confirmPassword || !username) {

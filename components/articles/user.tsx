@@ -15,6 +15,7 @@ type Article = {
   _id: string;
   title: string;
   content: string;
+  username: string;
   imageUrl?: string; 
 };
 
@@ -81,6 +82,7 @@ const UserArticles: React.FC<UserArticlesProps> = ({ id, numberOfArticles }) => 
           ) : (
             <div className="article-no-image-content">
               <h2 className="article-title">{article.title}</h2>
+              <span>Por {article.username}</span>
               <p className="article-content">{article.sections[getIndex(article.sections)].content}</p>
             </div>
           )}

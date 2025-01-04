@@ -65,7 +65,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
         <div className={styles.head}>
             <h1>{article.title}</h1>
             <p className="article-meta">
-              Por <Link href=""><span className="article-author">{article.username}</span></Link> el{" "}
+              Por <Link href={`/users/${article.username}`}><span className="article-author">{article.username}</span></Link> el{" "}
               <span className="article-date">{new Date(article.createdAt).toLocaleDateString()}</span>
             </p>
             <h3></h3>
