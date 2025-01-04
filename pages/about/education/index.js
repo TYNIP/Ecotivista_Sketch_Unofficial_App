@@ -14,13 +14,13 @@ export default function AboutPage() {
         canonical={`${PATHURL}/about/education`}
       />
       
-      <section className={styles.aboutContainer}>
+      <section className={styles.generalContainer}>
         <div className={styles.head}>
           <Image src={Logo} alt="Ecotivista Logo" />
           <h2>Area de Educación</h2>
         </div>
         
-        <article className={styles.manifesto}>
+        <article className={styles.mainContent}>
           <h2>Educación en Ecotivista</h2>
           <p>
           En Ecotivista, la educación es el pilar fundamental para generar conciencia, construir conocimiento y 

@@ -14,13 +14,13 @@ export default function AboutPage() {
         canonical={`${PATHURL}/about`}
       />
       
-      <section className={styles.aboutContainer}>
+      <section className={styles.generalContainer}>
         <div className={styles.head}>
           <Image src={Logo} alt="Ecotivista Logo" />
           <h2>¡Si tienes un sueño de cambio, ya formas parte de Ecotivista!</h2>
         </div>
         
-        <article className={styles.manifesto}>
+        <article className={styles.mainContent}>
           <h2>Manifesto</h2>
           <p>
           Vivimos en una era donde la participación ciudadana ya no es una opción, sino una necesidad urgente. 

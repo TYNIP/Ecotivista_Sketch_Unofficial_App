@@ -14,13 +14,13 @@ export default function AboutPage() {
         canonical={`${PATHURL}/about/activism`}
       />
       
-      <section className={styles.aboutContainer}>
+      <section className={styles.generalContainer}>
         <div className={styles.head}>
           <Image src={Logo} alt="Ecotivista Logo" />
           <h2>Area de Activismo</h2>
         </div>
         
-        <article className={styles.manifesto}>
+        <article className={styles.mainContent}>
           <h2>Activismo en Ecotivista</h2>
           <p>
           El área de Activismo de Ecotivista es donde las ideas se convierten en acción. Nuestro propósito es empoderar a 

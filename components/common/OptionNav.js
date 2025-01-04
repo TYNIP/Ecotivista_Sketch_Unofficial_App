@@ -27,7 +27,7 @@ a {
 `;
 
 const Courtain = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 30000;
   background-color:rgba(0,0,0, 0.1);
   width: 100%;

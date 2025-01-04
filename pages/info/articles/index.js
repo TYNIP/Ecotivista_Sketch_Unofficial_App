@@ -5,8 +5,8 @@ import styles from '../../../styles/index.module.scss';
 export default function Publisher(){
     const { id } = useAuth();
     return (
-        <section className={styles.aboutContainer}>
-            <section className={styles.manifesto}>
+        <section className={styles.generalContainer}>
+            <section className={styles.mainContent}>
                 <h2>Mis Articulos</h2>
             </section>
             

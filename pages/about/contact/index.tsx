@@ -27,7 +27,7 @@ export default function AboutPage() {
         canonical={`${PATHURL}/about/contact`}
       />
       
-      <section className={styles.aboutContainer}>
+      <section className={styles.generalContainer}>
 
         <Form title='' onSubmit={login} description=''>
         <div className={styles.head}>

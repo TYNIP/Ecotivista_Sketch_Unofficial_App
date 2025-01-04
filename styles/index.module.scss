@@ -5,14 +5,13 @@ $color-secondary: #555;
 $background-light: #f9f9f9;
 $border-color: #ddd;
 
-.aboutContainer {
+.generalContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     width: 100%;
     margin: 0 auto;
-    /* background-color: #f9f9f9; */
   }
   
   .head {
@@ -22,6 +21,13 @@ $border-color: #ddd;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+  }
+
+  .head h1 {
+    font-size: 5vh;
+    color: #000000;
+    font-weight: bold;
   }
   
   .head h2 {
@@ -30,19 +36,26 @@ $border-color: #ddd;
     margin-top: 20px;
     font-style: italic;
   }
+
+  .head h3 {
+    width: 100%;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    border-bottom: 2px solid #ccc;
+  }
   
   .head img {
     border-radius: 50%;
     width: 25%;
   }
   
-  .manifesto {
+  .mainContent {
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
     color: #333;
   }
   
-  .manifesto h2 {
+  .mainContent h2 {
     font-size: 2.5rem;
     color: #2c3e50;
     border-bottom: 2px solid #ccc;
@@ -50,35 +63,35 @@ $border-color: #ddd;
     margin-bottom: 20px;
   }
   
-  .manifesto h3 {
+  .mainContent h3 {
     font-size: 1.8rem;
     color: #2c3e50;
     margin-top: 30px;
   }
   
-  .manifesto p {
+  .mainContent p {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 20px;
     text-align: justify;
   }
   
-  .manifesto ul {
+  .mainContent ul {
     list-style-type: none;
     padding-left: 0;
   }
   
-  .manifesto li {
+  .mainContent li {
     font-size: 1.2rem;
     margin-bottom: 15px;
   }
   
-  .manifesto li strong {
+  .mainContent li strong {
     font-weight: bold;
   }
   
   @media (max-width: 768px) {
-    .aboutContainer {
+    .generalContainer {
       padding: 20px;
     }
   
@@ -86,19 +99,19 @@ $border-color: #ddd;
       font-size: 2rem;
     }
   
-    .manifesto h2 {
+    .mainContent h2 {
       font-size: 2rem;
     }
   
-    .manifesto h3 {
+    .mainContent h3 {
       font-size: 1.5rem;
     }
   
-    .manifesto p {
+    .mainContent p {
       font-size: 1rem;
     }
   
-    .manifesto li {
+    .mainContent li {
       font-size: 1rem;
     }
   }

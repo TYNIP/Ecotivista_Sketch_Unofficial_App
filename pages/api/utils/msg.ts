@@ -13,6 +13,7 @@ export const msg = {
         logOutError: 'Un Error Ocurrió mientras cerrando la sesión',
         invalidSectionType: 'Sección Invalida. Solo se acepta "texto", "imagen", y "video".',
         invalidSectionContent: 'Sección no puede estar vacia.',
+        notFound: "No se encontro nada relacionado",
     },
     success:{
         userCreated: 'Registro Exitoso. - REDIRIGIENDO...',
@@ -22,6 +23,6 @@ export const msg = {
         authorized: 'Autorizado',
         logout: 'Cierre de Sesión Exitosa. - REDIRIGIENDO...',
         articleCreated: 'Articulo Publicado con Exito!',
-        updated: "Se Actualizó con Exito"
+        updated: "Se Actualizó con Exito",
     }
 }

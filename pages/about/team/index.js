@@ -16,13 +16,13 @@ export default function AboutPage() {
         canonical={`${PATHURL}/about/team`}
       />
       
-      <section className={styles.aboutContainer}>
+      <section className={styles.generalContainer}>
         <div className={styles.head}>
           <Image src={Logo} alt="Ecotivista Logo" />
           <h2>Equipo</h2>
         </div>
         
-        <article className={styles.manifesto}>
+        <article className={styles.mainContent}>
           <h2>¿Quiénes somos?</h2>
           <p>
           Ecotivista está conformado por un equipo diverso y apasionado de estudiantes provenientes de distintas universidades, 

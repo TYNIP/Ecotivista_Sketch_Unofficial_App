@@ -14,13 +14,13 @@ export default function AboutPage() {
         canonical={`${PATHURL}/about/journalism`}
       />
       
-      <section className={styles.aboutContainer}>
+      <section className={styles.generalContainer}>
         <div className={styles.head}>
           <Image src={Logo} alt="Ecotivista Logo" />
           <h2>Area de Periodismo</h2>
         </div>
         
-        <article className={styles.manifesto}>
+        <article className={styles.mainContent}>
           <h2>Periodismo en Ecotivista</h2>
           <p>
           El área de Periodismo de Ecotivista es el corazón informativo del proyecto, dedicado a investigar, analizar y comunicar 
@@ -41,7 +41,7 @@ export default function AboutPage() {
             <li><strong>Visibilización de Historias: </strong>Damos voz a las comunidades y personas que tradicionalmente han sido excluidas de los medios, destacando sus soluciones y esfuerzos por el cambio.</li>
             <li><strong>Producción Multiformato: </strong>Creemos en el poder de la diversidad de formatos para llegar a más personas:</li>
 
-            <section className={styles.aboutContainer}>
+            <section className={styles.generalContainer}>
                 <ol>
                     <li><strong> ➤ Artículos y reportajes </strong>para quienes prefieren leer.</li>
                     <li><strong>➤ Podcasts </strong>para conectar de manera auditiva con nuestra audiencia, llevando discusiones profundas y accesibles a cualquier lugar.</li>

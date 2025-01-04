@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Loader } from "../../components/loader";
+import Link from "next/link";
 
 function getIndex(array:any){
     for(let i=0; i<array.length; i++){
@@ -67,7 +68,8 @@ const UserArticles: React.FC<UserArticlesProps> = ({ id, numberOfArticles }) => 
   return (
     <div className="articles-container">
       {articles.map((article) => (
-        <div key={article._id} className={`article-card ${article.imageUrl ? "" : "no-image"}`}>
+        <Link href={`/article/${article._id}`} key={article._id}>
+        <div className={`article-card ${article.imageUrl ? "" : "no-image"}`}>
           {article.imageUrl ? (
             <Image
               src={article.imageUrl}
@@ -89,6 +91,7 @@ const UserArticles: React.FC<UserArticlesProps> = ({ id, numberOfArticles }) => 
             </>
           )}
         </div>
+        </Link>
       ))}
       <style jsx>{`
         .articles-container {
@@ -96,6 +99,7 @@ const UserArticles: React.FC<UserArticlesProps> = ({ id, numberOfArticles }) => 
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 16px;
           padding: 16px;
+          margin-top: 1%;
         }
         .article-card {
           border: 3px solid #25C660;
