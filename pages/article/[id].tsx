@@ -69,9 +69,13 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
               <span className="article-date">{new Date(article.createdAt).toLocaleDateString()}</span>
             </p>
             <h3></h3>
+              <p className={styles.description}>{article.description}</p>
+            <h3></h3>
         </div>
 
         <article className={styles.mainContent}>
+
+
           {article.sections.map((item, index) => {
             if (item.type === "text") {
               return (
@@ -92,7 +96,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
               return (
                 <div key={index} className="article-video">
                   <iframe
-                    src={`https://www.youtube.com/embed/${item.content}`}
+                    src={`https://www.youtube.com/embed/${item.content.split("v=")[1]}`}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

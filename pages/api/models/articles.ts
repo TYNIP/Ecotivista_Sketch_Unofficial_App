@@ -6,14 +6,13 @@ const SectionSchema = new Schema({
 });
 
 const ArticleSchema = new Schema({
-  title: { type: String, required: true },
+  title: { type: String, required: true, maxlength: 50 }, 
   author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, 
   description: { type: String, required: true, maxlength: 500 },
   tags: { type: [String], default: [], maxlength: 10 },
   sections: [SectionSchema],
   createdAt: { type: Date, default: Date.now },
 });
-
 
 const Article = models.Article || model('Article', ArticleSchema);
 

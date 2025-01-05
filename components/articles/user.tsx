@@ -3,14 +3,6 @@ import Image from "next/image";
 import { Loader } from "../../components/loader";
 import Link from "next/link";
 
-function getIndex(array:any){
-    for(let i=0; i<array.length; i++){
-        if(array[i].type === "text"){
-            return i;
-        }
-    }
-}
-
 type Article = {
   _id: string;
   title: string;
@@ -83,7 +75,7 @@ const UserArticles: React.FC<UserArticlesProps> = ({ id, numberOfArticles }) => 
             <div className="article-no-image-content">
               <h2 className="article-title">{article.title}</h2>
               <span>Por {article.username}</span>
-              <p className="article-content">{article.sections[getIndex(article.sections)].content}</p>
+              <p className="article-content">{article.description}</p>
             </div>
           )}
           {article.imageUrl && (
@@ -97,6 +89,7 @@ const UserArticles: React.FC<UserArticlesProps> = ({ id, numberOfArticles }) => 
       ))}
       <style jsx>{`
         .articles-container {
+          width: 100% !important;
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 16px;
