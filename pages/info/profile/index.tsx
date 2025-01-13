@@ -117,8 +117,8 @@ export default function ProfilePage() {
           <Image
             src={newCoverPhoto ? URL.createObjectURL(newCoverPhoto) : coverPhoto}
             alt="Cover Page Preview"
-            width={"100"}
-            height={"100"}
+            width={"1000"}
+            height={"1000"}
           />
           <input
             type="file"
@@ -126,7 +126,7 @@ export default function ProfilePage() {
           />
         </>
       ) : (
-        <Image src={coverPhoto} alt="Cover Page" width={"100"} height={"100"} />
+        <Image src={coverPhoto} alt="Cover Page" width={"1000"} height={"1000"} />
       )}
     </div>
 
@@ -136,8 +136,8 @@ export default function ProfilePage() {
           <Image
             src={newProfilePicture ? URL.createObjectURL(newProfilePicture) : profilePicture}
             alt="Profile Picture Preview"
-            width={"100"}
-            height={"100"}
+            width={"1000"}
+            height={"1000"}
           />
           <input
             type="file"
@@ -145,7 +145,7 @@ export default function ProfilePage() {
           />
         </>
       ) : (
-      <Image src={profilePicture} alt="Profile" width={"100"} height={"100"} />
+      <Image src={profilePicture} alt="Profile" width={"1000"} height={"1000"} />
       )}
     </div>
 

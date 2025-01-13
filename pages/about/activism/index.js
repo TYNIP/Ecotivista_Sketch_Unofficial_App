@@ -17,7 +17,7 @@ export default function AboutPage() {
       <section className={styles.generalContainer}>
         <div className={styles.head}>
           <Image src={Logo} alt="Ecotivista Logo" />
-          <h2>Area de Activismo</h2>
+          <h2>Área de Activismo</h2>
         </div>
         
         <article className={styles.mainContent}>

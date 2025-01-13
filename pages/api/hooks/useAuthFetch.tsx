@@ -19,6 +19,7 @@ export function useAuthFetch(){
         try{
 
             const data = await axios.post(`/api/auth/${endpoint}`, formData, options);
+            console.log("context",data);
 
             showNotification({
                 msj: data.data.message,
@@ -28,7 +29,7 @@ export function useAuthFetch(){
 
             /* NOTIFICATIONS */
             if(redirectRoute) router.push(redirectRoute);
-            return true;
+            return data;
 
         }catch(err: any){
             showNotification({

@@ -56,7 +56,7 @@ const UserArticles: React.FC<UserArticlesProps> = ({ id, numberOfArticles }) => 
 
   if (loading) return <div style={{ height: "6vh", paddingTop: "3vh" }}><Loader /></div>;
   if (error) return <div style={{ height: "6vh", paddingTop: "3vh", width:"100%", "textAlign": "center" }}>Error: {error}</div>;
-  if (articles.length === 0) return <div style={{ height: "6vh", paddingTop: "3vh" }}>No articles available yet.</div>;
+  if (articles.length === 0) return <div style={{ height: "6vh", paddingTop: "3vh" }}>No Hay Articulos Disponibles</div>;
 
   return (
     <div className="articles-container">

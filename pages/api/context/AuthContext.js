@@ -37,10 +37,23 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, loading, username: username, email: email, id: id }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  <AuthContext.Provider
+    value={{
+      isAuthenticated,
+      setIsAuthenticated, // Expose these setters
+      username,
+      setUsername,
+      email,
+      setEmail,
+      id,
+      setId,
+      loading,
+    }}
+  >
+    {children}
+  </AuthContext.Provider>
+);
+
 };
 
 export const useAuth = () => useContext(AuthContext);

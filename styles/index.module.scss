@@ -75,12 +75,67 @@ $border-color: #ddd;
     color: #2c3e50;
     margin-top: 30px;
   }
+
+  .mainContent .imgContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mainContent .imgContent {
+    width: 80%;
+    border-radius: 10px !important;
+    max-height: 500px;
+    object-fit:contain;
+  }
   
   .mainContent p {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 20px;
     text-align: justify;
+  }
+
+  .mainContent .video {
+    width: 100% !important;
+    min-height: 300px !important;
+    max-height: 500px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .mainContent .spotify {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .mainContent .buttons {
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+  
+    a {
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+  
+      &.primaryButton {
+        background-color: #22C55E;
+        color: white;
+        border: none;
+  
+        &:hover {
+          background-color: #52dd85;
+        }
+      }
+
+    }
   }
   
   .mainContent ul {
@@ -100,6 +155,10 @@ $border-color: #ddd;
   @media (max-width: 768px) {
     .generalContainer {
       padding: 20px;
+    }
+
+    .mainContent .imgContent {
+      width: 100%;
     }
   
     .header h1 {
@@ -121,6 +180,14 @@ $border-color: #ddd;
     .mainContent li {
       font-size: 1rem;
     }
+
+    .mainContent .spotify {
+      width: 100%;
+      height: 160px !important;
+      margin-bottom: -20px;
+      padding-bottom: 0;
+    }
+
   }
   
   /* Testimonios styles */

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import {useAuthFetch} from '../../pages/api/hooks/useAuthFetch';
+import {useAuth} from "@/pages/api/context/AuthContext";
 
 const OptionsBannerRight = styled.div`
 position: fixed;
@@ -16,7 +17,7 @@ padding: 0;
 margin-right: 2%;
 border-radius: 10px 10px 0 0;
 
-a {
+a, button {
     text-decoration: none;
     font-weight: bold;
     color: black;
@@ -36,29 +37,37 @@ const Courtain = styled.div`
   height: 100vh;
 `;
 
+const CloseBtn = styled.button`
+margin: 0;
+`
+
 const OptionNavUser = ({setOptions})=>{
-    const authfetch = useAuthFetch();
-  
-    const logout = async ()=>{
-      try{
+  const {authfetch} = useAuthFetch();
+  const { setIsAuthenticated, setUsername, setEmail, setId } = useAuth();
+
+  const logout = async () => {
+    try {
       const res = await authfetch({
         endpoint: 'logout',
         redirectRoute: '/',
         formData: 'Closing Session',
       });
 
-      console.log(res);
-
-      if(res){
-        setTimeout(()=>window.location.reload(), 2000);
+      console.log("Session closed successfully:", res);
+  
+      if (res) {
+        console.log("Session closed successfully:", res);
+        setIsAuthenticated(false); 
+        setUsername('');
+        setEmail('');
+        setId('');
+        setOptions(false);
       }
-
-      setOptions(false)
-      } catch(err){
-
-      }
-      
+    } catch (err) {
+      console.error("Error closing session:", err);
     }
+  };
+  
     
     return(
       <>
@@ -66,7 +75,7 @@ const OptionNavUser = ({setOptions})=>{
           <Link href="/info/profile" onClick={()=>setOptions(false)}>Perfil </Link>
           <Link href="/info/articles" onClick={()=>setOptions(false)}>Mis Articulos </Link>
           <Link href="/info/articles/publisher" onClick={()=>setOptions(false)}>Publicista </Link>
-          <Link href="/" onClick={()=>logout()}>Cerrar Sesión</Link>
+          <CloseBtn onClick={()=>logout()}>Cerrar Sesión</CloseBtn>
         </OptionsBannerRight>
         <Courtain onClick={()=>setOptions(false)} />
       </>

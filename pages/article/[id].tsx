@@ -2,11 +2,12 @@ import Link from "next/link";
 import React from "react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
+import Image from "next/image";
 const {PATHURL} = require('../api/config');
 import styles from '../../styles/index.module.scss';
 
 type ArticleContentItem = {
-  type: "text" | "image" | "video";
+  type: "text" | "image" | "video" | "link" | "subtitle" | "spotify";
   content: string;
 };
 
@@ -26,7 +27,7 @@ interface ArticlePageProps {
 
 const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
   if(article.sections === undefined) {
-    return <div style={{"background": "red", color: "white", "textAlign": "center", "borderRadius":"20px"}}>ALGO SALIO MAL</div>
+    return <div style={{"background": "red", color: "white", "textAlign": "center", "borderRadius":"20px"}}>ARTICULO NO ENCONTRADO</div>
   }else{
   return (
     <>
@@ -85,16 +86,48 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
               );
             } else if (item.type === "image") {
               return (
-                <img
+                <div key={index} className={styles.imgContainer}>
+                  <Image
                   key={index}
                   src={item.content}
+                  width={100}
+                  height={100}
                   alt={`Image ${index + 1}`}
-                  className="article-image"
+                  className={styles.imgContent}
                 />
+                </div>
               );
-            } else if (item.type === "video") {
+            } else if (item.type === "link"){
               return (
-                <div key={index} className="article-video">
+                <div key={index} className={styles.buttons}>
+                  <a key={index} href={`${item.content.url}`} className={styles.primaryButton} target="_blank">{item.content.text.toUpperCase()}</a>
+                </div>
+              )
+            }
+            else if (item.type === "subtitle") {
+              return (
+              <h3 key={index}>
+                {item.content}
+              </h3>
+              );
+            } else if (item.type === "spotify") {
+              return (
+                <iframe
+                  src={`https://open.spotify.com/embed/${item.content}`}
+                  allow="encrypted-media" 
+                  key={index}
+                  title="Spotify"
+                  width="560"
+                  height="460"
+                  frameBorder="0"
+                  allowFullScreen
+                  className={styles.spotify}
+                ></iframe>
+              );
+            }
+            else if (item.type === "video") {
+              return (
+                <div key={index} className={styles.video}>
                   <iframe
                     src={`https://www.youtube.com/embed/${item.content.split("v=")[1]}`}
                     frameBorder="0"
@@ -104,9 +137,19 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                   ></iframe>
                 </div>
               );
-            }
+            } 
             return null;
           })}
+
+          <div className={styles.head}>
+            <h3></h3>
+            <p className="article-meta" style={{"marginBottom":"-70px"}}>
+            El contenido de este artículo es responsabilidad exclusiva de su autor(a) y no refleja 
+            necesariamente la postura y valores de Ecotivista. En Ecotivista promovemos la libertad 
+            de expresión y la diversidad de perspectivas. Cada usuario es libre de compartir sus 
+            puntos de vista de manera individual.
+            </p>
+          </div>
         </article>
       </section>
       <style jsx>{`
