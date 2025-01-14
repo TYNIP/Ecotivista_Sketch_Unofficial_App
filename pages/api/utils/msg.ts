@@ -16,12 +16,12 @@ export const msg = {
         notFound: "No se encontro nada relacionado",
     },
     success:{
-        userCreated: 'Registro Exitoso. - REDIRIGIENDO...',
-        userLogged: 'Inicio de Sesión Exitosa. - REDIRIGIENDO...',
+        userCreated: 'Registro Exitoso.',
+        userLogged: 'Inicio de Sesión Exitosa.',
         emailSent:'Email Mandado Exitosamente',
         pwdChanged: 'Cambio de Contraseña Exitosa',
         authorized: 'Autorizado',
-        logout: 'Cierre de Sesión Exitosa. - REDIRIGIENDO...',
+        logout: 'Cierre de Sesión Exitosa.',
         articleCreated: 'Articulo Publicado con Exito!',
         updated: "Se Actualizó con Exito",
     }

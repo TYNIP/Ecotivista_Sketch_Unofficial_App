@@ -29,7 +29,7 @@ export function useAuthFetch(){
 
             /* NOTIFICATIONS */
             if(redirectRoute) router.push(redirectRoute);
-            return data;
+            return true;
 
         }catch(err: any){
             showNotification({

@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
   <AuthContext.Provider
     value={{
       isAuthenticated,
-      setIsAuthenticated, // Expose these setters
+      setIsAuthenticated, 
       username,
       setUsername,
       email,

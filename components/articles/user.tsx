@@ -3,6 +3,9 @@ import Image from "next/image";
 import { Loader } from "../../components/loader";
 import Link from "next/link";
 
+function imgExists(array:any){
+  array.sections.filter((item)=>item.type === "image");
+}
 type Article = {
   _id: string;
   title: string;

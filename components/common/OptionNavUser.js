@@ -1,6 +1,6 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router'
 import styled from 'styled-components';
-import {useAuthFetch} from '../../pages/api/hooks/useAuthFetch';
 import {useAuth} from "@/pages/api/context/AuthContext";
 
 const OptionsBannerRight = styled.div`
@@ -42,29 +42,25 @@ margin: 0;
 `
 
 const OptionNavUser = ({setOptions})=>{
-  const {authfetch} = useAuthFetch();
+  const router = useRouter()
   const { setIsAuthenticated, setUsername, setEmail, setId } = useAuth();
 
   const logout = async () => {
     try {
-      const res = await authfetch({
-        endpoint: 'logout',
-        redirectRoute: '/',
-        formData: 'Closing Session',
+      const res = await fetch("/api/auth/logout",{
+        method: "POST",
       });
-
-      console.log("Session closed successfully:", res);
   
       if (res) {
-        console.log("Session closed successfully:", res);
         setIsAuthenticated(false); 
         setUsername('');
         setEmail('');
         setId('');
         setOptions(false);
+        router.push('/');
       }
     } catch (err) {
-      console.error("Error closing session:", err);
+      console.log("Error closing session:", err);
     }
   };
   
