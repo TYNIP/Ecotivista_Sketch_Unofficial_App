@@ -73,7 +73,7 @@ const IconNotifications = () =>{
 
 
 function getOptions(path){
-  path = path.split('/')
+  path = path.split('/');
   switch(path[1]){
     case "about":
       return [
