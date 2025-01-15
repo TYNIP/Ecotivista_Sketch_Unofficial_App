@@ -5,6 +5,7 @@ import Head from "next/head";
 import Image from "next/image";
 const {PATHURL} = require('../api/config');
 import styles from '../../styles/index.module.scss';
+import EllipsisButton from "@/components/articles/optionBadge";
 
 type ArticleContentItem = {
   type: "text" | "image" | "video" | "link" | "subtitle" | "spotify";
@@ -64,14 +65,16 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
 
       <section className={styles.generalContainer}>
         <div className={styles.head}>
+        <div style={{margin: "5px", padding: 0, width: "100%", "display": "flex", "justifyContent": "end"}}><EllipsisButton article={article}/></div>
             <h1>{article.title}</h1>
             <p className="article-meta">
               Por <Link href={`/users/${article.username}`}><span className="article-author">{article.username}</span></Link> el{" "}
-              <span className="article-date">{new Date(article.createdAt).toLocaleDateString()}</span>
+              <span className="article-date">{new Date(article.createdAt).toLocaleDateString()}</span> 
             </p>
             <h3></h3>
               <p className={styles.description}>{article.description}</p>
             <h3></h3>
+            
         </div>
 
         <article className={styles.mainContent}>

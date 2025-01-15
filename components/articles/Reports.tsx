@@ -27,15 +27,10 @@ export default function ReportComponent({article}:any) {
         </div>
         <div className='my-[10px] flex flex-col gap-4'>
           <Form.Input 
-          label='Email' 
-          name='email' 
-          placeholder='Escriba su email...' 
-          type='text'/>
-          <Form.Input 
           label='Asunto' 
           name='topic' 
-          placeholder='Asunto del Correo...' 
-          type='password'/>
+          placeholder='Tipo de violación de los terminos de uso' 
+          type='text'/>
           <Form.Input 
           label='Contenido' 
           name='content' 
@@ -50,9 +45,9 @@ export default function ReportComponent({article}:any) {
         />
 
       <Form.Footer 
-        description="Si tiene alguna duda de como sus datos pueden ser usados favor de checar nuestra" 
-        link='/terms-service/privacy-policy' 
-        textLink='Politica de Privacidad'/>
+        description="Al reportar el articulo esta identificando una violación de este mismo a los terminos de uso. Si tiene una duda de estos puede checar los" 
+        link='/terms-service' 
+        textLink='Terminos de Servicio'/>
 
       </Form>
         
