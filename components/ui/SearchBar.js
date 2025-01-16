@@ -12,7 +12,7 @@ const SearchBar = () => {
     if (query.trim() === '') return;
 
     try {
-      const response = await fetch('ENDPOINT', {
+      const response = await fetch('/api/articles/search', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

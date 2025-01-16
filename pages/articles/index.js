@@ -1,6 +1,14 @@
 /* ARTICLES */
 import Meta from '../../components/seo/Meta';
 const {PATHURL} = require('../api/config');
+import SearchBar from '../../components/ui/SearchBar';
+import styled from 'styled-components';
+
+const Center = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+`;
 
 export default function ArticlesPage() {
   return (
@@ -10,7 +18,9 @@ export default function ArticlesPage() {
         description="Articulos de investigación de la comunidad de Ecotivista"
         canonical={`${PATHURL}/articles`}
       />
-      <h1>Articulos</h1>
+      <Center>
+        <SearchBar/>
+      </Center>
     </>
   );
 }

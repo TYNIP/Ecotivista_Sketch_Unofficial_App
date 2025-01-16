@@ -1,8 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
-import Image from "next/image";
+import React, { useEffect, useState} from "react";
 import { Loader } from "../../components/loader";
-import Link from "next/link";
-import EllipsisButton from "./optionBadge";
+import ArticleCard from "./articleCard";
 
 type Article = {
   _id: string;
@@ -84,38 +82,7 @@ const UserArticles: React.FC<UserArticlesProps> = ({ id, numberOfArticles }) => 
   return (
     <div className="articles-container">
       {articles.map((article) => (
-        <div key={article._id} className={`article-card ${article.imageUrl ? "" : "no-image"}`}>
-          <Link href={`/article/${article._id}`}>
-            {article.imageUrl ? (
-              <Image
-                src={article.imageUrl}
-                alt={article.title}
-                width={300}
-                height={200}
-                className="article-image"
-              />
-            ) : (
-              <div className="article-no-image-content">
-                <h2 className="article-title">{article.title}</h2>
-                <span>Por {article.username}</span>
-                <p className="article-content">{article.description}</p>
-              </div>
-            )}
-            {article.imageUrl && (
-              <>
-                <h2 className="article-title">{article.title}</h2>
-                <span>Por {article.username}</span>
-                <p className="article-content">{article.description}</p>
-              </>
-            )}
-          </Link>
-
-          {/* Option Badge */}
-          {/* @ts-ignore */}
-          <EllipsisButton article={article} setArticles={setArticles}/> 
-
-        </div>
-
+        <ArticleCard key={article._id}article={article} setArticles={setArticles}/>
       ))}
 
       <style jsx>{`
@@ -123,62 +90,10 @@ const UserArticles: React.FC<UserArticlesProps> = ({ id, numberOfArticles }) => 
           width: 100% !important;
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          grid-template-rows: repeat(auto-fit, minmax(280px, 1fr));
           gap: 16px;
           padding: 16px;
           margin-top: 1%;
-        }
-        .article-card {
-          border: 3px solid #25C660;
-          border-radius: 8px;
-          padding: 16px;
-          background-color: #fff;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
-          position: relative;
-        }
-        .article-card:hover {
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
-        .article-image {
-          width: 100%;
-          height: auto;
-          border-radius: 8px;
-        }
-        .article-no-image-content {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
-        }
-        .article-title {
-          font-size: 1.25rem;
-          font-weight: 500;
-          margin: 12px 0;
-          color: #333;
-          line-height: 1.5;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        .article-content {
-          font-size: 0.9rem;
-          color: #666;
-          line-height: 1.5;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        .no-image .article-title {
-          font-size: 1.5rem;
-          color: #222;
-        }
-        .no-image .article-content {
-          margin-top: 8px;
-          font-size: 1rem;
-          color: #444;
         }
 
       `}</style>

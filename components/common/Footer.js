@@ -79,7 +79,7 @@ const Footer = () => {
         </SqInfo>
 
       </FooterInfo>
-      <FooterText>ecotivista.com &copy; {new Date().getFullYear()} Ecotivista. All rights reserved.</FooterText>
+      <FooterText>ecotivista.org &copy; {new Date().getFullYear()} Ecotivista. All rights reserved.</FooterText>
     </FooterContainer>
   );
 };

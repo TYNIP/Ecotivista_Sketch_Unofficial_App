@@ -1,6 +1,7 @@
 /* HOME */
 import Meta from '../components/seo/Meta';
 import {PATHURL} from './api/config';
+import styles from '@/styles/index.module.scss';
 
 export default function HomePage() {
   return (
@@ -10,8 +11,25 @@ export default function HomePage() {
         description="The House of Independent Journalism, Activism and Education."
         canonical={`${PATHURL}`}
       />
-      <h1>Welcome to the Ecotivista Home Page</h1>
-      <p>Fostering ecological knowledge, data exchange, and encouraging people to take action.</p>
+      <section className={styles.generalContainer}>
+      <div className={styles.head}>
+          <h2>¡Si tienes un sueño de cambio, ya formas parte de Ecotivista!</h2>
+      </div>
+
+      <article className={styles.mainContent}>
+        <h2>Ecotivista</h2>
+
+        <h2>Recientes</h2>
+
+        <h2>Sugeridos</h2>
+
+        <h2>Usuarios</h2>
+
+        <h2>Descubre</h2>
+      </article>
+
+      </section>
+
     </>
   );
 }
