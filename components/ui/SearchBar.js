@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SearchBar = () => {
+const SearchBar = ({setArticles}) => {
   const [query, setQuery] = useState('');
 
   const handleChange = (e) => {
@@ -9,26 +9,7 @@ const SearchBar = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (query.trim() === '') return;
-
-    try {
-      const response = await fetch('/api/articles/search', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ query }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      console.log('Success:', data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    
   };
 
   return (
