@@ -1,29 +1,75 @@
 import React, { useState } from 'react';
 
-const SearchBar = ({setArticles}) => {
+const SearchBar = ({ setArticles }) => {
   const [query, setQuery] = useState('');
+  const [searchBy, setSearchBy] = useState('title'); 
 
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
 
+  const handleDropdownChange = (e) => {
+    setSearchBy(e.target.value);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    try {
+      // Build the query string
+      const queryString = new URLSearchParams({
+        query,
+        filter: searchBy, 
+        page: '1',        
+        limit: '10',     
+      }).toString();
+  
+      // Fetch with query parameters in the URL
+      const response = await fetch(`/api/articles/search/articles?${queryString}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+  
+      const data = await response.json();
+      setArticles(data.articles);
+    } catch (error) {
+      alert("No se encontraron resultados de la busqueda");
+      console.error('Error fetching search results:', error);
+    }
   };
 
   return (
     <div className="relative rounded-full overflow-hidden bg-white shadow-xl w-3/4">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center w-full">
+
+        {/* Dropdown */}
+        <select
+          value={searchBy}
+          onChange={handleDropdownChange}
+          className="bg-transparent border-none outline-none text-gray-500 font-semibold px-4 py-3 rounded-l-full w-36 text-xs sm:text-sm md:text-base lg:text-lg sm:mb-2 md:mb-0"
+        >
+          <option value="title">Título</option>
+          <option value="description">Descripción</option>
+          <option value="tags">Tags</option>
+        </select>
+
+        {/* Input */}
         <input
           type="text"
           name="text"
-          placeholder="Busca por termino ..."
-          className="bg-transparent outline-none border-none pl-6 pr-10 py-5 w-full font-sans text-lg font-semibold"
+          placeholder="Search..."
+          className="bg-transparent outline-none border-none px-8 py-3 w-full font-sans text-lg font-semibold"
           value={query}
           onChange={handleChange}
         />
-        <div className="absolute right-2 top-[0.4em]">
+
+        {/* Submit Button */}
+        <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
           <button
             type="submit"
             className="w-14 h-14 rounded-full bg-green-500 group shadow-xl flex items-center justify-center relative overflow-hidden"
@@ -64,6 +110,7 @@ const SearchBar = ({setArticles}) => {
             ></div>
           </button>
         </div>
+
       </form>
     </div>
   );

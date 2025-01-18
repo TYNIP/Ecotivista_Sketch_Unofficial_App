@@ -128,7 +128,7 @@ export default function ArticlesPage() {
         canonical={`${PATHURL}/articles`}
       />
 
-      <SearchComponent> <SearchBar/> </SearchComponent>
+      <SearchComponent> <SearchBar setArticles={setArticles}/> </SearchComponent>
       
       <Center>
         {isLoading ? (
