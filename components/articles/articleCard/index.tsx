@@ -56,6 +56,7 @@ export default function ArticleCard({article, setArticles}:any) {
           background-color: #fff;
           transition: transform 0.2s ease, box-shadow 0.2s ease;
           position: relative;
+          min-width: 300px;
         }
         .article-card:hover {
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -78,7 +79,7 @@ export default function ArticleCard({article, setArticles}:any) {
           font-weight: 500;
           margin: 12px 0;
           color: #333;
-          line-height: 1.5;
+          line-height: 1;
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
@@ -88,7 +89,7 @@ export default function ArticleCard({article, setArticles}:any) {
         .article-content {
           font-size: 0.9rem;
           color: #666;
-          line-height: 1.5;
+          line-height: 1;
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
