@@ -8,13 +8,8 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     await connectMongoDB();
 
-    const { id, limit } = req.query;
-
-    if (!id) {
-      return res.status(400).json({
-        message: msg.error.needProps,
-      });
-    }
+    const id = "678864b85e09424e25e6537e";
+    const limit = "10";
 
     const query = { author: id };
     const options = limit ? { limit: parseInt(limit as string, 10) } : {};
@@ -24,7 +19,8 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
     .skip((parseInt(1, 10) - 1) * parseInt(limit as string, 10))
     .limit(parseInt(limit as string, 10));
     
-    const user = await User.findById(id).exec(); 
+    const user = await User.findById(id).exec()
+    
     const username = user?.username; 
     
     let articles = articlesObj.map(article => article.toObject());
@@ -33,7 +29,7 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
         return obj;
     });
 
-    res.status(200).json(articles);
+    res.status(200).json({articles});
   } catch (err) {
     return res.status(500).json({
       message: msg.error.default,});

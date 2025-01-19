@@ -195,7 +195,7 @@ export default function ProfilePage() {
             </>
           ) : (
             <div>
-              <SocialMedia links={{ linkedIn, instagram, yt }} />
+              <SocialMedia links={{ linkedIn, instagram, yt }} user={username}/>
             </div>
           )}
         </div>

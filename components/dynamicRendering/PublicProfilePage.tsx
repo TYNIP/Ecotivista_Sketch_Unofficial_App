@@ -22,12 +22,12 @@ export default function PublicProfilePage({ userData }:any) {
     <div className={styles.container}>
       {/* Cover Photo */}
       <div className={styles.coverPhoto}>
-        <Image src={coverPhoto || defCover} alt="Cover Page" width={"100"} height={"100"} />
+        <Image src={coverPhoto || defCover} alt="Cover Page" width={"1000"} height={"1000"} />
       </div>
 
       {/* Profile Picture */}
       <div className={styles.profilePicture}>
-        <Image src={profilePicture || defProfile} alt="Profile Picture" width={"100"} height={"100"} />
+        <Image src={profilePicture || defProfile} alt="Profile Picture" width={"1000"} height={"1000"} />
       </div>
 
       <div className={styles.secContainer}>
@@ -45,7 +45,7 @@ export default function PublicProfilePage({ userData }:any) {
 
         {/* Social Media Links */}
         <div className={styles.media}>
-          <SocialMedia links={socialMedia} />
+          <SocialMedia links={socialMedia} user={username}/>
         </div>
       </div>
 

@@ -179,6 +179,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
         linkedIn: fields.linkedIn[0],
         instagram: fields.instagram[0],
         youtube: fields.yt[0],
+        tiktok: fields.tiktok[0],
       },
     };
 

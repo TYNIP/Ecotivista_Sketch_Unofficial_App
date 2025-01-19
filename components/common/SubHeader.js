@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
@@ -54,8 +53,8 @@ function getOptions(path) {
       ];
     default:
       return [
-        { path: 'Recientes', action: 'recents' },
-        { path: 'Descubre', action: 'discover' },
+        { path: 'Recientes', link: '/articles?sort=recents' },
+        { path: 'Descubre', link: '/articles?sort=discover' },
         { path: 'Sugeridos', link: '/articles/suggestions' },
         { path: 'Ecotivista', link: '/users/ECOTIVISTA' },
       ];
@@ -65,46 +64,21 @@ function getOptions(path) {
 const Header = () => {
   const [options, setOptions] = useState([]);
   const pathname = usePathname();
-  const router = useRouter();
 
   useEffect(() => {
     setOptions(getOptions(pathname));
   }, [pathname]);
 
-  const handleClick = (action) => {
-    if (action === 'recents') {
-      router.push('/articles?sort=recents');
-    } else if (action === 'discover') {
-      router.push('/articles?sort=discover');
-    }
-  };
 
   return (
     <SubHeader>
       <SubNav>
         {options.map((option, key) => (
-          option.action ? (
-            <button
-              key={key}
-              onClick={() => handleClick(option.action)}
-              style={{
-                textDecoration: 'none',
-                color: 'black',
-                padding: '5px 20px',
-                margin: '0 5px',
-                whiteSpace: 'nowrap',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-              }}
-            >
-              {option.path}
-            </button>
-          ) : (
+            
             <Link href={`${option.link}`} key={key}>
               {option.path}
             </Link>
-          )
+          
         ))}
       </SubNav>
     </SubHeader>

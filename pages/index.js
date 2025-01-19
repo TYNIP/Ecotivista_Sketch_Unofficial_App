@@ -20,14 +20,13 @@ export default function HomePage() {
 
       <article className={styles.mainContent}>
         <h2>Ecotivista</h2>
-
+        <Banner path={"ecotivista"}/>
 
         <h2><Link href="/articles?sort=recents">Recientes</Link></h2>
         <Banner path={"recents"}/>
 
         <h2>Sugeridos</h2>
 
-        <h2>Usuarios</h2>
 
         <h2><Link href="/articles?sort=discover">Descubre</Link></h2>
         <Banner path={"random"}/>

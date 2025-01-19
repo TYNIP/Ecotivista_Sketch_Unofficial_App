@@ -35,7 +35,7 @@ const Banner: React.FC<BannerProps> = ({ path }) => {
         const response = await fetch(endpoint);
 
         if (!response.ok) {
-          throw new Error('Failed to fetch articles.');
+          throw new Error('Error: No se pudieron mostrar los articulos');
         }
 
         const data = await response.json();
