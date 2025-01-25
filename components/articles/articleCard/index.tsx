@@ -58,6 +58,7 @@ export default function ArticleCard({article, setArticles}:any) {
           position: relative;
           min-width: 300px;
         }
+
         .article-card:hover {
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
@@ -105,6 +106,12 @@ export default function ArticleCard({article, setArticles}:any) {
           font-size: 1rem;
           color: #444;
         }
+
+        @media only screen and (max-width: 400px) {
+        .article-card {
+        min-width: 200px;
+      }
+    }
 
       `}</style>
 

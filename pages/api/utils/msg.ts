@@ -16,6 +16,7 @@ export const msg = {
         notFound: "No se encontro nada relacionado",
         invalidToken: "Token no valido",
         userBanned:"Su cuenta fue suspendida. Favor de contactarnos.",
+        invalidFilter: "Filtro invalido",
     },
     success:{
         userCreated: 'Registro Exitoso.',

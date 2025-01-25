@@ -1,6 +1,7 @@
 import { connectMongoDB } from '../../../libs/mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Article from '../../../models/articles';
+import User from '../../../models/user'; // Assuming this is the User model
 import { msg } from '../../../utils/msg';
 
 export default async function GET(req: NextApiRequest, res: NextApiResponse) {
@@ -32,10 +33,36 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
     const skip = (parseInt(page as string) - 1) * parseInt(limit as string);
 
     //@ts-ignore
-    const articles = await Article.find(filters[filter])
+    const articles = await Article.aggregate([
+      { $match: filters[filter] }, // Match the filter conditions
+      { $sort: { createdAt: -1 } }, // Sort by most recent
+      {
+        $lookup: {
+          from: 'users', // The collection name for the User model
+          localField: 'author', // Field in Article referencing User's _id
+          foreignField: '_id', // Field in User being referenced
+          as: 'authorDetails', // Field to store the matched user document
+        },
+      },
+      {
+        $unwind: {
+          path: '$authorDetails',
+          preserveNullAndEmptyArrays: true, // If no matching user is found, keep null
+        },
+      },
+      {
+        $addFields: {
+          username: '$authorDetails.username', // Add username at the top level
+        },
+      },
+      {
+        $project: {
+          authorDetails: 0, // Remove the nested authorDetails object
+        },
+      },
+    ])
       .skip(skip)
-      .limit(parseInt(limit as string))
-      .exec();
+      .limit(parseInt(limit as string));
 
     //@ts-ignore
     const totalArticles = await Article.countDocuments(filters[filter]).exec();

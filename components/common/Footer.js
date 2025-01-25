@@ -57,15 +57,16 @@ const Footer = () => {
         </SqInfo>
 
         <SqInfo>
-          <p>Contactanos</p>
-          <Link href="/about/contact">Mandanos un Email</Link>
-        </SqInfo>
-
-        <SqInfo>
           <p>Recursos</p>
           <Link href="/">Empezando</Link>
           <Link href="/">¿Cómo user Publicista?</Link>
         </SqInfo>
+
+        <SqInfo>
+          <p>Contactanos</p>
+          <Link href="/about/contact">Mandanos un Email</Link>
+        </SqInfo>
+
 
         <SqInfo>
           <p>Terminos de Uso</p>

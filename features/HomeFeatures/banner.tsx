@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import ArticleCard from '@/components/articles/articleCard';
 import { Loader } from '@/components/loader';
 
@@ -17,7 +17,7 @@ const Banner: React.FC<BannerProps> = ({ path }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  useMemo(() => {
     const fetchArticles = async () => {
       setLoading(true);
       setError(null);
