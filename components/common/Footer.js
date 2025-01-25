@@ -62,14 +62,15 @@ const Footer = () => {
         </SqInfo>
 
         <SqInfo>
-          <p>Comunidad</p>
-          <Link href="/">Discord</Link>
+          <p>Recursos</p>
+          <Link href="/">Empezando</Link>
+          <Link href="/">¿Cómo user Publicista?</Link>
         </SqInfo>
 
         <SqInfo>
           <p>Terminos de Uso</p>
-          <Link href="/terms-service">Terminos del Servicio</Link>
-          <Link href="/terms-service/privacy-policy">Politica de Privacidad</Link>
+          <Link href="/terms/terminos-y-condiciones-ecotivista.pdf">Terminos del Servicio</Link>
+          <Link href="/terms/politica-de-privacidad-ecotivista.pdf">Politica de Privacidad</Link>
           <Link href="/terms-service/config-cookies">Configuración de Cookies</Link>
         </SqInfo>
 

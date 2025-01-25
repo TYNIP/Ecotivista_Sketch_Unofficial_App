@@ -1,6 +1,7 @@
 /* HOME */
 import Meta from '../../../components/seo/Meta';
 import {PATHURL} from '../../api/config';
+import ComingSoon from '@/components/extras/ComingSoon';
 
 export default function HomePage() {
   return (
@@ -10,7 +11,8 @@ export default function HomePage() {
         description="The House of Independent Journalism, Activism and Education."
         canonical={`${PATHURL}/terms-service/config-cookies`}
       />
-      <h1>Configuración de Cookies</h1>
+        <ComingSoon/>
+        <p style={{"width":"100%", "textAlign":"center"}}>Actualmente no se recopila información por cookies</p>
     </>
   );
 }

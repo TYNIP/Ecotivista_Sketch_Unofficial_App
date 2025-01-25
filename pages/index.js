@@ -14,22 +14,19 @@ export default function HomePage() {
         canonical={`${PATHURL}`}
       />
       <section className={styles.generalContainer}>
-      <div className={styles.head}>
-          <h2>¡Si tienes un sueño de cambio, ya formas parte de Ecotivista!</h2>
+      <div className={styles.head} styles={{"width":"100vh"}}>
+          <h2 styles={{"width":"100vh"}}>¡Si tienes un sueño de cambio, ya formas parte de Ecotivista!</h2>
       </div>
 
       <article className={styles.mainContent}>
         <h2>Ecotivista</h2>
-        <Banner path={"ecotivista"}/>
+        <div style={{"width":"100%"}}><Banner path={"ecotivista"}/></div>
 
         <h2><Link href="/articles?sort=recents">Recientes</Link></h2>
-        <Banner path={"recents"}/>
-
-        <h2>Sugeridos</h2>
-
+        <div style={{"width":"100%"}}><Banner path={"recents"}/></div>
 
         <h2><Link href="/articles?sort=discover">Descubre</Link></h2>
-        <Banner path={"random"}/>
+        <div style={{"width":"100%"}}><Banner path={"random"}/></div>
 
       </article>
 

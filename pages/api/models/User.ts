@@ -58,6 +58,24 @@ const UserSchema: Schema = new Schema(
       type: String,
       required: true,
     },
+    name: {
+      type: String,
+      required: true,
+    },
+    lastname: {
+      type: String,
+      required: true,
+    },
+    status: {
+      type: String,
+      enum: ['active', 'inactive', "banned"],
+      default: 'active',
+      required: true,
+    },
+    token: {
+      type: String,
+      required: true,
+    },
     userLogStatus: {
       type: Boolean,
       default: false,
@@ -87,6 +105,7 @@ const UserSchema: Schema = new Schema(
     timestamps: true,
   }
 );
+
 
 const User = mongoose.models.User || mongoose.model<IUserSchema>("User", UserSchema);
 export default User;

@@ -4,8 +4,6 @@ import Meta from '../../components/seo/Meta';
 import {Form} from '../../components/forms/index';
 import {useAuthFetch} from '../api/hooks/useAuthFetch';
 import {useLoading} from '../api/hooks/useLoading';
-import { PassThrough } from 'stream';
-import { trusted } from 'mongoose';
 const {PATHURL} = require('../api/config');
 
 export default function RegisterPage () {
@@ -39,6 +37,18 @@ export default function RegisterPage () {
 
         <div className='my-[10px] flex flex-col gap-4'>
 
+        <Form.Input 
+          label='Nombre(s)' 
+          name='name' 
+          placeholder='Escriba su nombre...' 
+          type='text'/>
+
+        <Form.Input 
+          label='Apellidos' 
+          name='lastname' 
+          placeholder='Escriba sus apellidos...' 
+          type='text'/>
+
           <Form.Input 
           label='Email' 
           name='email' 
@@ -46,7 +56,7 @@ export default function RegisterPage () {
           type='text'/>
 
           <Form.Input 
-          label='Username' 
+          label='Usuario' 
           name='username' 
           placeholder='Escriba un nombre de usuario...' 
           type='text'/>
@@ -63,12 +73,28 @@ export default function RegisterPage () {
           placeholder='Confirmar Contraseña...' 
           type='password'/>
 
+        <Form.Input 
+          label='Token' 
+          name='tokenId' 
+          placeholder='Escriba su token...' 
+          type='password'/>
+
         </div>
 
         <Form.SubmitButton 
           buttonText='Registrate'
           isLoading={isLoading}
         />
+
+      <Form.Footer 
+        description="Al crear una cuenta estas aceptando nuestros" 
+        link='/terms/terminos-y-condiciones-ecotivista.pdf' 
+        textLink='Términos y Condiciones'/>
+
+      <Form.Footer 
+        description="Al crear una cuenta estas aceptando nuestras" 
+        link='/terms/politica-de-privacidad-ecotivista.pdf' 
+        textLink='Politicas de Privacidad'/>
 
         <Form.Footer 
         description="¿Ya Tienes una Cuenta?" 

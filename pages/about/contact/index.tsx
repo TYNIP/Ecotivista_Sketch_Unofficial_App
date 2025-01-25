@@ -60,7 +60,7 @@ export default function AboutPage() {
 
       <Form.Footer 
         description="Si tiene alguna duda de como sus datos pueden ser usados favor de checar nuestra" 
-        link='/terms-service/privacy-policy' 
+        link='/terms/politica-de-privacidad-ecotivista.pdf' 
         textLink='Politica de Privacidad'/>
 
       </Form>

@@ -1,6 +1,7 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useCallback} from 'react';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import styled from 'styled-components';
@@ -28,15 +29,23 @@ const Content = styled.section`
 `;
 
 
-
-const generalNotifications = [{msg: 'hola', color:'green'}, {msg:'ah', color:'red'}];
-
 const MainLayout = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
   const pathname = usePathname();
   const router = useRouter()
 
-  const [status, setStatus] = useState(isAuthenticated)
+  const [status, setStatus] = useState(isAuthenticated);
+  const [announcements, setAnnouncements] = useState([]);
+
+  const fetchAnnouncements = useCallback(async ()=>{
+    try{
+      const response = await axios.get("/api/announcements");
+      setAnnouncements(response.data);
+    }catch(err){
+      console.error('Error fetching announcements');
+    }
+  },[])
+
   useEffect(()=>{
     setStatus(isAuthenticated);
     const path = pathname.split('/')[1];
@@ -45,15 +54,20 @@ const MainLayout = ({ children }) => {
     }
 
   },[isAuthenticated, pathname]);
+
+  useEffect(()=>{
+    fetchAnnouncements()
+    console.log(announcements);
+  },[]);
   return(
   
   <Container>
     <Header isAuthenticated={status}/>
     <SubHeader/>
       <NotificationProvider>
-        {generalNotifications.length > 0 && (
-          generalNotifications.map((notification, key)=>
-          <Warning key={key} message={notification.msg} bkg={notification.color}/>
+        {announcements.length > 0 && (
+          announcements.map((notification, key)=>
+          <Warning key={key} message={notification.message} bkg={notification.color==="green"?"green":notification.color==="red"?"#A60101":"#B88F27"}/>
           )
         )}
       

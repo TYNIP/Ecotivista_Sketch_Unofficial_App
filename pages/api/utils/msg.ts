@@ -14,6 +14,8 @@ export const msg = {
         invalidSectionType: 'Sección Invalida. Solo se acepta "texto", "imagen", y "video".',
         invalidSectionContent: 'Sección no puede estar vacia.',
         notFound: "No se encontro nada relacionado",
+        invalidToken: "Token no valido",
+        userBanned:"Su cuenta fue suspendida. Favor de contactarnos.",
     },
     success:{
         userCreated: 'Registro Exitoso.',
