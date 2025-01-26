@@ -202,15 +202,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params as { id: string };
 
   try {
-    console.log("qwsde")
     const host = context.req.headers.host; 
     const protocol = context.req.headers["x-forwarded-proto"] || "http"; 
     const baseUrl = `${protocol}://${host}`;
 
-    console.log("ahhhhhhhh", `${baseUrl}/api/articles/search?id=${id}`);
     const res = await fetch(`${baseUrl}/api/articles/search?id=${id}`);
     const article = await res.json();
-    console.log(article);
 
     if (!article) {
       return { notFound: true };
@@ -222,7 +219,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       },
     };
   } catch (err) {
-    console.log(err);
     return { notFound: true };
   }
 };

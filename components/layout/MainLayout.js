@@ -57,7 +57,6 @@ const MainLayout = ({ children }) => {
 
   useEffect(()=>{
     fetchAnnouncements()
-    console.log(announcements);
   },[]);
   return(
   

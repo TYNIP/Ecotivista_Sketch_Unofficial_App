@@ -4,12 +4,16 @@ import { msg } from '../../utils/msg';
 import User from '../../models/User';
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
+import cookie from 'cookie';
 
 const { SECRET } = require('../../config');
 
 export default async function GET(req: NextApiRequest, res: NextApiResponse) {
     try {
-        const token = req.headers.token as string | undefined;
+        const cookies = req.headers.cookie;
+        const parsedCookies = cookies ? cookie.parse(cookies) : {};
+        const token = parsedCookies.auth_cookie;
+
         if (!token) {
             return res.status(400).json({
                 message: msg.error.notAuthorized,
@@ -41,7 +45,6 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
                 coverPhoto: transformFileIdToUrl(user.coverPhoto),
             };
 
-            console.log(userWithUrls)
             return res.status(200).json(userWithUrls);
         } catch (err) {
             console.error(err);

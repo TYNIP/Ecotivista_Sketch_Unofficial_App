@@ -76,8 +76,6 @@ export default function ArticlesPage() {
           ? '/api/articles/general/recents'
           : '/api/articles/general/random';
 
-      console.log(`Fetching from: ${endpoint}`);
-
       const response = await axios.get(endpoint, {
         params: { page, limit: 10 },
       });

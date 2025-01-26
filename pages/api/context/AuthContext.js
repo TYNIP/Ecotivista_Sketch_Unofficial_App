@@ -16,7 +16,6 @@ export const AuthProvider = ({ children }) => {
       try {
 
         const res = await checkStatus();
-        console.log("helloooo", res);
 
         if (res.isAuthorized) {
           setIsAuthenticated(true);

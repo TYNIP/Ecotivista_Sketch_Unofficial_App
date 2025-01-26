@@ -53,7 +53,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
           message: "Subtitles exceed the maximum length of 200 characters.",
         });
       }
-      console.log("1")
+
       // Ensure content is a string before calculating its size
       if (content && typeof content === 'string') {
         totalArticleSize += Buffer.byteLength(content, 'utf-8');
@@ -68,7 +68,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
           message: `Image size in section ${section.type} exceeds 5 MB.`,
         });
       }
-console.log("2")
+
       // Links validation
       if (links && Array.isArray(links)) {
         linkCount += links.length;
@@ -81,14 +81,14 @@ console.log("2")
         });
       }
     });
-    console.log("3")
+
     // Check link count
     if (linkCount > MAX_LINKS) {
       return res.status(400).json({
         message: `The article contains more than the maximum allowed ${MAX_LINKS} links.`,
       });
     }
-    console.log("4")
+
     // Check total article size
     if (totalArticleSize > MAX_ARTICLE_SIZE) {
       return res.status(400).json({

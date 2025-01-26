@@ -1,4 +1,8 @@
-# ECOTIVISTA PUBLIC PLATFORM
+# ECOTIVISTA PUBLIC PLATFORM - v1.0
+**VERSION BETA** 
+
+## Checar Documentación
+PROXIMAMENTE. . .
 
 ## Getting Started
 

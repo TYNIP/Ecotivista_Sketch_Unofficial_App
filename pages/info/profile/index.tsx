@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 import SocialMedia from "../../../components/ui/SocialMedia";
 import UserArticles from "@/components/articles/user";
 import { useAuth } from "../../api/context/AuthContext";
-import {getCookie} from "../../api/functions/getCookie";
+
 import Image from "next/image";
 const defCover = require("../../../public/assets/default_coverpage.jpg");
 const defProfile = require("../../../public/assets/default_profilepicture.jpg");
@@ -30,11 +30,8 @@ export default function ProfilePage() {
   // Fetch user data from API
   async function fetchData() {
     try {
-      const token = getCookie();
       const response = await fetch(`/api/user/profile`, {
-        headers: {
-          token: token?.cookie || undefined,
-        },
+        credentials: 'include', 
       });
   
       if (!response.ok) {
@@ -43,8 +40,6 @@ export default function ProfilePage() {
   
       const user = await response.json();
       const data = user;
-  
-      console.log("profile data", data);
   
       // Update state variables
       setDescription(data.description);
@@ -82,13 +77,9 @@ export default function ProfilePage() {
     if (newCoverPhoto) formData.append("coverPhoto", newCoverPhoto);
 
     try {
-      const token = getCookie()
-      console.log(formData, newProfilePicture, newCoverPhoto)
       await fetch(`/api/user/update`,{
         method: "POST",
-        headers: {
-            token: token.cookie || undefined
-        },
+        credentials: 'include',
         body: formData
     });
       setEditMode(false);

@@ -60,7 +60,7 @@ const OptionNavUser = ({setOptions})=>{
         router.push('/');
       }
     } catch (err) {
-      console.log("Error closing session:", err);
+      console.error("Error closing session");
     }
   };
   

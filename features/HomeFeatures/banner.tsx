@@ -39,7 +39,6 @@ const Banner: React.FC<BannerProps> = ({ path }) => {
         }
 
         const data = await response.json();
-        console.log(data);
 
         setArticles(data.articles || []);
       } catch (err) {

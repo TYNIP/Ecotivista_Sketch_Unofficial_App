@@ -10,9 +10,6 @@ export async function getServerSideProps(context:any) {
       const protocol = context.req.headers["x-forwarded-proto"] || "http";
       const baseUrl = `${protocol}://${host}`;
       const userClean = cleanPathName(username);
-
-      console.log("Final username:", userClean);
-      console.log(`${baseUrl}/api/social/users?username=${userClean}`);
       
       const res = await fetch(`${baseUrl}/api/social/users?username=${userClean}`);
 

@@ -6,6 +6,7 @@ export const msg = {
         pwdNotMatch: 'Contraseñas No Coinciden',
         emailExists: 'Email ya existe',
         usernameExists: "Usuario ya existente",
+        weakPassword: "La contraseña es debil favor de escribir una nueva",
         userNotFound: 'Usuario No Encontrado',
         incorrect: 'Usuario o contraseña incorrecta',
         notAuthorized: 'Usuario no autorizado',

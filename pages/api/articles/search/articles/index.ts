@@ -1,15 +1,12 @@
 import { connectMongoDB } from '../../../libs/mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Article from '../../../models/articles';
-import User from '../../../models/user'; // Assuming this is the User model
 import { msg } from '../../../utils/msg';
 
 export default async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     await connectMongoDB();
     const { query, filter, page = 1, limit = 10 } = req.query;
-
-    console.log(req.query);
 
     if (!query || !filter) {
       return res.status(400).json({

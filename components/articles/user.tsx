@@ -33,7 +33,6 @@ const UserArticles: React.FC<UserArticlesProps> = ({ id, numberOfArticles }) => 
         setError(null);
 
         const url = `/api/articles/user?id=${id}${numberOfArticles ? `&limit=${numberOfArticles}` : ""}`;
-        console.log(`Fetching: ${url}`);
         const res = await fetch(url);
 
         if (!res.ok) {
@@ -41,7 +40,6 @@ const UserArticles: React.FC<UserArticlesProps> = ({ id, numberOfArticles }) => 
         }
 
         const data: Article[] = await res.json();
-        console.log(data);
         setArticles(data);
       } catch (err) {
         setError((err as Error).message);

@@ -7,11 +7,8 @@ export default async function POST(
     req: NextApiRequest,
     res: NextApiResponse,
 ){
-    console.log("cerrando sesion")
     try {
         await connectMongoDB()
-
-        console.log("ayuddddddaaaa")
 
         res.setHeader('Set-Cookie', cookie.serialize('auth_cookie', '', {
             secure: process.env.NODE_ENV === 'production',
@@ -19,7 +16,6 @@ export default async function POST(
             expires: new Date(0), 
             path: '/',
         }));
-        console.log("clossing session")
         
         res.status(200).json({
             message: msg.success.logout
