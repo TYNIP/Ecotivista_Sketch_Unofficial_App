@@ -58,8 +58,8 @@ const Footer = () => {
 
         <SqInfo>
           <p>Recursos</p>
-          <Link href="/">Empezando</Link>
-          <Link href="/">¿Cómo user Publicista?</Link>
+          <Link href="/terms/comenzando-con-ecotivista.pdf">Comenzando</Link>
+          <Link href="/terms/como-usar-publicista.pdf">¿Cómo usar Publicista?</Link>
         </SqInfo>
 
         <SqInfo>
