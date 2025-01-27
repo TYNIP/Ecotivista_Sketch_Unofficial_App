@@ -25,7 +25,7 @@ export default function AboutPage() {
           <p>
           El área de Activismo de Ecotivista es donde las ideas se convierten en acción. Nuestro propósito es empoderar a 
           las comunidades para que se movilicen, lideren y participen en iniciativas que impulsen un cambio positivo 
-          en temas sociales, ambientales y de justicia climática.
+          en temas sociales y ambientales.
           </p>
 
           <h3>¿Qué es Activismo en Ecotivista?</h3>
@@ -37,7 +37,7 @@ export default function AboutPage() {
 
           <h3>¿Qué hacemos?</h3>
           <ul>
-            <li><strong>Organización de Proyectos Comunitarios: </strong>Trabajamos con grupos locales para diseñar y ejecutar proyectos que aborden necesidades específicas, como la reforestación, campañas de reciclaje o proyectos de infraestructura sostenible.</li>
+            <li><strong>Organización de Proyectos Comunitarios: </strong>Trabajamos con grupos locales para diseñar y ejecutar proyectos que aborden necesidades específicas, infraestructura sostenible, escolaridad, etc.</li>
             <li><strong>Capacitación en Activismo Efectivo: </strong>A través de talleres y cursos, enseñamos estrategias para planificar, comunicar y ejecutar acciones que logren resultados concretos.</li>
             <li><strong>Promoción de la Participación Ciudadana: </strong>Impulsamos la colaboración entre individuos, colectivos y organizaciones para fortalecer las redes de apoyo mutuo.</li>
             <li><strong>Campañas de Concientización: </strong>Organizamos iniciativas que visibilizan problemáticas urgentes e invitan a la sociedad a actuar.</li>

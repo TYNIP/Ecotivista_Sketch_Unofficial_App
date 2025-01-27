@@ -43,13 +43,13 @@ export default function AboutPage() {
 
           <p>
           Nos motiva ser parte de una comunidad que cree en el poder de la educación, 
-          el activismo y el periodismo independiente como herramientas para transformar nuestro entorno. 
+          el activismo y el periodismo como herramientas para transformar nuestro entorno. 
           Creemos que cualquier persona, con las herramientas adecuadas, puede generar un impacto real en su 
           comunidad y más allá.
           </p>
 
 
-        <section className={styles.testimonials}>
+        {/* <section className={styles.testimonials}>
           <h2>Equipo</h2>
           <div className={styles.testimonialGrid}>
             {testimonials.map((testimonial, index) => (
@@ -60,7 +60,7 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         </article>
       </section>

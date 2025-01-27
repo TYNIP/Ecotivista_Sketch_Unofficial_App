@@ -25,8 +25,8 @@ export default function AboutPage() {
           <p>
           Vivimos en una era donde la participación ciudadana ya no es una opción, sino una necesidad urgente. 
           Ecotivista nace de la profunda convicción de que la acción colectiva y el empoderamiento ciudadano son 
-          claves para enfrentar los desafíos de nuestra época. Somos una plataforma que integra educación, activismo y 
-          periodismo independiente, con el objetivo de crear una comunidad sólida que fomente el cambio positivo dentro 
+          claves para enfrentar los desafíos de nuestra época. Somos una comunidad que integra educación, activismo y 
+          periodismo en una sola plataforma, con el objetivo de crear una comunidad sólida que fomente el cambio positivo dentro 
           de nuestras sociedades. En Ecotivista, creemos que el conocimiento, la participación y la colaboración son los 
           pilares fundamentales para transformar la realidad y construir un futuro más equitativo y sustentable.
           </p>
@@ -35,7 +35,7 @@ export default function AboutPage() {
           <p>
           El cambio climático, la degradación ambiental, la desigualdad social y la falta de participación ciudadana 
           son algunas de las crisis interconectadas que enfrentamos hoy. El acceso desigual a recursos, la percepción de que 
-          involucrarse en proyectos sostenibles es peligroso o costoso, y la falta de un sentido de comunidad en estos 
+          involucrarse en proyectos sostenibles o de impacto social es peligroso o costoso, y la falta de un sentido de comunidad en estos 
           esfuerzos han sido barreras significativas que impiden la participación activa.
           </p>
           <p>

@@ -39,14 +39,14 @@ export default function AboutPage() {
           <ul>
             <li><strong>Investigación y Análisis: </strong>Profundizamos en problemáticas sociales y medioambientales, abordándolas desde perspectivas locales y globales.</li>
             <li><strong>Visibilización de Historias: </strong>Damos voz a las comunidades y personas que tradicionalmente han sido excluidas de los medios, destacando sus soluciones y esfuerzos por el cambio.</li>
-            <li><strong>Producción Multiformato: </strong>Creemos en el poder de la diversidad de formatos para llegar a más personas:</li>
+            <li><strong>Producción Multiformato: </strong></li>
 
             <section className={styles.generalContainer}>
                 <ol>
-                    <li><strong> ➤ Artículos y reportajes </strong>para quienes prefieren leer.</li>
-                    <li><strong>➤ Podcasts </strong>para conectar de manera auditiva con nuestra audiencia, llevando discusiones profundas y accesibles a cualquier lugar.</li>
-                    <li><strong>➤ Videos e infografías </strong> que resumen y visualizan información de manera impactante.</li>
-                    <li><strong>➤ Documentales </strong>que exploran a fondo temas críticos, con un enfoque audiovisual más detallado.</li>
+                    <li><strong> ➤ Artículos y reportajes </strong></li>
+                    <li><strong>➤ Podcasts </strong></li>
+                    <li><strong>➤ Videos cortos e infografías </strong></li>
+                    <li><strong>➤ Documentales </strong></li>
                 </ol>
             </section>
 

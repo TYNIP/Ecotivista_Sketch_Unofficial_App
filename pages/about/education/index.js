@@ -40,7 +40,7 @@ export default function AboutPage() {
             <li><strong>Cursos y Talleres Interactivos: </strong>Diseñamos programas educativos accesibles para todos los niveles, abordando temas como cambio climático, economía circular, energías renovables y más.</li>
             <li><strong>Material Didáctico Innovador: </strong>Producimos recursos educativos como guías, infografías, y videos explicativos adaptados a diferentes estilos de aprendizaje.</li>
             <li><strong>Aprendizaje Basado en Proyectos: </strong>Facilitamos actividades prácticas que permiten a los participantes aplicar conocimientos teóricos a situaciones del mundo real.</li>
-            <li><strong>Espacios de Debate y Reflexión: </strong>Organizamos mesas redondas, foros y encuentros educativos para fomentar el pensamiento crítico y la discusión constructiva.</li>
+            <li><strong>Espacios de Debate y Reflexión: </strong>Organizamos mesas de trabajo, foros y encuentros educativos para fomentar el pensamiento crítico y la discusión constructiva.</li>
             <li><strong>Educación Intergeneracional: </strong>Promovemos la inclusión de conocimientos tanto tradicionales como contemporáneos, integrando perspectivas diversas para enriquecer el aprendizaje.</li>
           </ul>
 
