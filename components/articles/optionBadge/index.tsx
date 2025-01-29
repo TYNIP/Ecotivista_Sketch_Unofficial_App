@@ -42,6 +42,7 @@ const EllipsisButton: React.FC<EllipsisButtonProps> = ({ article, setArticles })
         try {
           const res = await fetch(`/api/articles/user/delete`, {
             method: "DELETE",
+            credentials: 'include', 
             headers: {
               "Content-Type": "application/json",
             },

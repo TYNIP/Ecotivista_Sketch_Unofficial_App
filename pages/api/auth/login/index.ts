@@ -80,7 +80,7 @@ export default async function POST(
         aud: 'EcotivistaUsers' 
       },
       SECRET,
-      { expiresIn: '15m' }
+      { expiresIn: `${12 * 60}m` }
     );
 
     // Set secure cookie with token
@@ -88,7 +88,7 @@ export default async function POST(
       secure: process.env.NODE_ENV === 'production', 
       httpOnly: true, 
       sameSite: 'strict',
-      maxAge: 15 * 60, 
+      maxAge: 12 * 60 * 60 * 1000, 
       path: '/', 
     }));
 

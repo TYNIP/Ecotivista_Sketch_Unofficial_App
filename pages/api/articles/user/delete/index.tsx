@@ -2,18 +2,22 @@ import { connectMongoDB } from "../../../libs/mongodb";
 import jwt from "jsonwebtoken";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Article from "../../../models/articles";
-import User from "../../../models/User";
+import cookie from 'cookie';
 const { SECRET } = require("../../../config");
 
 export default async function DELETE(req: NextApiRequest, res: NextApiResponse) {
   try {
+
+    const cookies = req.headers.cookie;
+    const parsedCookies = cookies ? cookie.parse(cookies) : {};
+    const token = parsedCookies.auth_cookie;
     await connectMongoDB();
     if (req.method !== "DELETE") {
       return res.status(405).json({ message: "Method not allowed." });
     }
 
     // Check auth_cookie
-    const authCookie = req.cookies.auth_cookie;
+    const authCookie = token;
     if (!authCookie) {
       return res.status(401).json({ message: "Authentication required." });
     }

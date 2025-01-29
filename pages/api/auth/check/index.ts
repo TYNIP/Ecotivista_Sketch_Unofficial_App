@@ -31,11 +31,12 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
       const { data, exp, deviceHash: tokenDeviceHash } = isTokenValid;
 
       // Check if token is nearing expiration
-      const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+      
+      /* const currentTime = Math.floor(Date.now() / 1000); 
       //@ts-ignore
       const timeRemaining = exp - currentTime;
 
-      if (timeRemaining < 5 * 60) { // Less than 5 minutes remaining
+      if (timeRemaining < 5 * 60) { 
         const newToken = jwt.sign({ data, deviceHash: tokenDeviceHash }, SECRET, { expiresIn: '15m' });
 
         res.setHeader(
@@ -48,7 +49,7 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
             path: '/',
           })
         );
-      }
+      } */
 
       // Validate the current device's User-Agent and IP address to ensure it's the same device
       const userAgent = req.headers['user-agent'] || '';

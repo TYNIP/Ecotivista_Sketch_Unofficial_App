@@ -86,7 +86,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
         aud: 'EcotivistaUsers' 
       },
       SECRET,
-      { expiresIn: '15m' }
+      { expiresIn: `${12 * 60}m` }
     );
 
     // Save user
@@ -99,7 +99,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
-        maxAge: 15 * 60, // 15 minutes expiry
+        maxAge: 12 * 60 * 60 * 1000, 
         path: '/',
       })
     );

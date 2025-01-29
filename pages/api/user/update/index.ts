@@ -10,6 +10,7 @@ import fsPromises from 'fs/promises';
 import mongoose from 'mongoose';
 import Grid from 'gridfs-stream';
 const UserModel = User;
+import cookie from 'cookie';
 
 const { SECRET } = require('../../config');
 let gfs: Grid.GridFSBucket | null = null;
@@ -143,10 +144,15 @@ const handleFileUpload = async (files: any) => {
 // API handler
 export default async function POST(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const token = req.headers.token as string | undefined;
+     const cookies = req.headers.cookie;
+    const parsedCookies = cookies ? cookie.parse(cookies) : {};
+    const token = parsedCookies.auth_cookie;
+    
     if (!token) {
-      return res.status(400).json({ message: msg.error.notAuthorized });
-    }
+        return res.status(400).json({
+            message: msg.error.notAuthorized,
+          });
+      }
 
     // Verify JWT token
     const decoded = jwt.verify(token, SECRET);

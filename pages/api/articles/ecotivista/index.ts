@@ -8,7 +8,7 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     await connectMongoDB();
 
-    const id = "678864b85e09424e25e6537e";
+    const id = "6799b36e8c952d01b4bfdd61";
     const limit = "10";
 
     const query = { author: id };
