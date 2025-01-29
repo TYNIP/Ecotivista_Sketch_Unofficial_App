@@ -4,7 +4,6 @@ const { PATHURL } = require('../../api/config');
 import styles from '../../../styles/index.module.scss';
 const Logo = require("../../../public/assets/ecotivistalogo.jpg");
 import Image from "next/image";
-import {testimonials} from "../data";
 
 export default function AboutPage() {
 
@@ -48,19 +47,6 @@ export default function AboutPage() {
           comunidad y más allá.
           </p>
 
-
-        {/* <section className={styles.testimonials}>
-          <h2>Equipo</h2>
-          <div className={styles.testimonialGrid}>
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className={styles.testimonialCard}>
-                <h3>{testimonial.name}</h3>
-                <h4>{testimonial.area}</h4>
-                <p>{testimonial.testimony}</p>
-              </div>
-            ))}
-          </div>
-        </section> */}
 
         </article>
       </section>

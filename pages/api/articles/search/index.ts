@@ -1,7 +1,7 @@
 import { connectMongoDB } from '../../libs/mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Article from '../../models/articles';
-import User from '../../models/User';
+import User from '../../models/UserModel';
 import { msg } from '../../utils/msg';
 
 export default async function GET(req: NextApiRequest, res: NextApiResponse) {

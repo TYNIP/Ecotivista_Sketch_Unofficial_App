@@ -4,7 +4,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import {msg} from '../../utils/msg';
 import {isValidEmail} from '../../utils/isValidEmail';
 import { EmailTemplate } from '../../mailsTemplates/ForgotPwd';
-import User from '../../models/User';
+import User from '../../models/UserModel';
 import jwt from 'jsonwebtoken';
 import { Resend } from 'resend';
 const {SECRET, MKEY, PATHURL} = require('../../config')

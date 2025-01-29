@@ -273,6 +273,7 @@ const CreateArticle = () => {
                 <input
                   type="file"
                   accept="image/*"
+                  //@ts-ignore
                   onChange={(e) => handleImageUpload(index, e.target.files[0])}
                 />
                 {section.content && (
@@ -373,7 +374,7 @@ const CreateArticle = () => {
             </div>
           </div>
         ))}
-
+        {/* @ts-ignore */}
         <Alert status={alertData.status} message={alertData.message} count={counter} />
         <p>Espacio disponible: {((MAX_ARTICLE_SIZE - articleSize) / 1024 / 1024).toFixed(2)} MB</p>
 

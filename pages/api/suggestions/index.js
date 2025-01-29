@@ -1,7 +1,7 @@
 import { connectMongoDB } from '../libs/mongodb';
 import Suggestions from '../models/Suggestions';
 import Articles from '../models/articles';
-import User from '../models/user'; // Assuming the User model is named User
+import User from '../models/UserModel'; // Assuming the User model is named User
 
 export default async function handler(req, res) {
   try {

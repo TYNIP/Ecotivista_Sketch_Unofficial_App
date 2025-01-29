@@ -53,11 +53,11 @@ const MainLayout = ({ children }) => {
       router.push('/')
     }
 
-  },[isAuthenticated, pathname]);
+  },[isAuthenticated, pathname, router]);
 
   useEffect(()=>{
     fetchAnnouncements()
-  },[]);
+  },[fetchAnnouncements]);
   return(
   
   <Container>

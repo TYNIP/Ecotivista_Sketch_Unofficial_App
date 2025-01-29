@@ -3,7 +3,7 @@ import {connectMongoDB} from '../../libs/mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import {msg} from '../../utils/msg';
 import bcrypt from 'bcryptjs';
-import User from '../../models/User';
+import User from '../../models/UserModel';
 import jwt from 'jsonwebtoken';
 const {SECRET} = require('../../config')
 

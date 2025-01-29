@@ -5,7 +5,7 @@ import bcrypt from 'bcryptjs';
 import { msg } from '../../utils/msg';
 import { isValidEmail } from '../../utils/isValidEmail';
 import { sanitizeInput } from '../../utils/sanitizeInput';
-import User, { IUserSchema } from '../../models/User';
+import User from '../../models/UserModel';
 import jwt from 'jsonwebtoken';
 const { SECRET } = require('../../config');
 import crypto from 'crypto'; 

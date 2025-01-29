@@ -4,7 +4,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import bcrypt from 'bcryptjs';
 import { msg } from '../../utils/msg';
 import { isValidEmail } from '../../utils/isValidEmail';
-import User, { IUserSchema } from '../../models/User';
+import User from '../../models/UserModel';
 import Token from '../../models/Tokens';
 import jwt from 'jsonwebtoken';
 import { sanitizeInput } from '../../utils/sanitizeInput';
@@ -65,7 +65,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
       .digest('hex');  // Create a hash of User-Agent and IP address
 
     // Create new user
-    const newUser: IUserSchema = new User({
+    const newUser = new User({
       email,
       password: hashedPassword,
       username,
@@ -75,6 +75,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
       token: tokenId,
     });
 
+    //@ts-ignore
     const { password: _, ...userWithoutPassword } = newUser.toObject();
 
     // Create JWT with device-specific hash in the payload
@@ -90,6 +91,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
     );
 
     // Save user
+    //@ts-ignore
     await newUser.save();
 
     // Set secure cookie

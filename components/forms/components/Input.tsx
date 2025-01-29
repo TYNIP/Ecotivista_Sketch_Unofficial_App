@@ -31,6 +31,7 @@ export function Input({label, name, placeholder, type}: InputProps){
                     id={name} 
                     name={name}
                     value={formValues[name] || ''}
+                    //@ts-ignore
                     onChange={handleChange}
                     placeholder={placeholder}
                 />

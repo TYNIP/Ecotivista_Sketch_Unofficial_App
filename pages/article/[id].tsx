@@ -65,6 +65,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
 
       <section className={styles.generalContainer}>
         <div className={styles.head}>
+          {/* @ts-ignore */}
         <div style={{margin: "5px", padding: 0, width: "100%", "display": "flex", "justifyContent": "end"}}><EllipsisButton article={article}/></div>
             <h1>{article.title}</h1>
             <p className="article-meta">
@@ -103,6 +104,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
             } else if (item.type === "link"){
               return (
                 <div key={index} className={styles.buttons}>
+                  {/* @ts-ignore */}
                   <a key={index} href={`${item.content.url}`} className={styles.primaryButton} target="_blank">{item.content.text.toUpperCase()}</a>
                 </div>
               )

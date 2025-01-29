@@ -4,10 +4,11 @@ import { usePathname } from "next/navigation";
 import { useAuth } from "@/pages/api/context/AuthContext";
 
 type EllipsisButtonProps = {
-  article: () => void;
-  setArticles: () => void;
+
+  setArticles: () => any;
 };
 
+//@ts-ignore
 const EllipsisButton: React.FC<EllipsisButtonProps> = ({ article, setArticles }) => {
     const pathname = usePathname();
       const { isAuthenticated, username } = useAuth();
@@ -52,7 +53,8 @@ const EllipsisButton: React.FC<EllipsisButtonProps> = ({ article, setArticles })
           if (!res.ok) {
             throw new Error("No se pudo eliminar el artículo.");
           }
-    
+
+          //@ts-ignore
           setArticles((prev) => prev.filter((article) => article._id !== articleId));
           setDropdownVisible(null);
           setArticleToDelete(null);

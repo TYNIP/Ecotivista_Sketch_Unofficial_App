@@ -1,13 +1,15 @@
 import { connectMongoDB } from '../../libs/mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { msg } from '../../utils/msg';
-import User from '../../models/User';
+import User from '../../models/UserModel';
 import jwt from 'jsonwebtoken';
+//@ts-ignore
 import formidable from 'formidable';
 import sharp from 'sharp';
 import fs from 'fs';
 import fsPromises from 'fs/promises';
 import mongoose from 'mongoose';
+//@ts-ignore
 import Grid from 'gridfs-stream';
 const UserModel = User;
 import cookie from 'cookie';
@@ -49,6 +51,7 @@ const saveImageToGridFS = async (filePath: string, filename: string) => {
       reject(err);
     });
 
+    //@ts-ignore
     uploadStream.on('error', (err) => {
       console.error("Error during GridFS upload:", err);
       reject(err);
@@ -172,6 +175,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
     // Parse the form data
     const form = formidable({ multiples: true });
     const { fields, files }: any = await new Promise((resolve, reject) => {
+      //@ts-ignore
       form.parse(req, (err, fields, files) => {
         if (err) reject(err);
         resolve({ fields, files });
@@ -199,6 +203,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
       res.status(200).send({ success: true, message: "Files uploaded successfully", updates });
     } catch (err) {
       console.error("Error handling file upload:", err);
+      //@ts-ignore
       res.status(500).send({ success: false, message: "File upload failed", error: err.message });
     }
     

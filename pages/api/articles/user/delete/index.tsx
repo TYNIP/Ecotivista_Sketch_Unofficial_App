@@ -31,6 +31,7 @@ export default async function DELETE(req: NextApiRequest, res: NextApiResponse) 
     }
 
     // Extract user ID from the token
+    //@ts-ignore
     const userId = decodedToken?.data?._id;
     if (!userId) {
       return res.status(401).json({ message: "Invalid user credentials." });

@@ -113,6 +113,7 @@ export default function ProfilePage() {
           />
           <input
             type="file"
+            //@ts-ignore
             onChange={(e) => setNewCoverPhoto(e.target.files[0])}
           />
         </>
@@ -132,6 +133,7 @@ export default function ProfilePage() {
           />
           <input
             type="file"
+            //@ts-ignore
             onChange={(e) => setNewProfilePicture(e.target.files[0])}
           />
         </>

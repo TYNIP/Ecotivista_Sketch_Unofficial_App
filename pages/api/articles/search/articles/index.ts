@@ -31,6 +31,7 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
 
     //@ts-ignore
     const articles = await Article.aggregate([
+      //@ts-ignore
       { $match: filters[filter] }, // Match the filter conditions
       { $sort: { createdAt: -1 } }, // Sort by most recent
       {

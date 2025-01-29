@@ -1,7 +1,7 @@
 import { connectMongoDB } from '../../libs/mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { msg } from '../../utils/msg';
-import User from '../../models/User';
+import User from '../../models/UserModel';
 import mongoose from 'mongoose';
 import { revertPathName } from '@/components/functions';
 
