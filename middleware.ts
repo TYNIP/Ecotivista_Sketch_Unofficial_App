@@ -8,7 +8,7 @@ export async function middleware(req: NextRequest) {
   try {
     const token = req.cookies.get('auth_cookie');
     if (!token) {
-      return NextResponse.redirect(new URL('/forums', req.url));
+      return NextResponse.redirect(new URL('/login', req.url));
     }
 
     // Extract User-Agent
@@ -29,7 +29,7 @@ export async function middleware(req: NextRequest) {
     const data = await res.json();
 
     if (!data.isAuthorized) {
-      return NextResponse.redirect(new URL('/events', req.url));
+      return NextResponse.redirect(new URL('/login', req.url));
     }
 
     return NextResponse.next();

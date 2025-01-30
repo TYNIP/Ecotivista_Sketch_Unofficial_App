@@ -70,8 +70,6 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
         return res.status(401).json({
           message: 'Device mismatch. Unauthorized access.',
           isAuthorized: false,
-          do:{userAgent, ipAddress},
-          dt: {tokenDeviceHash, currentDeviceHash},
         });
       }
 
