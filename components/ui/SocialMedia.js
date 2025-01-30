@@ -84,6 +84,7 @@ export default function SocialMedia({links, user}){
             {links.linkedIn? <LinkedIn link={links.linkedIn}/> : <></>}
             {links.instagram? <Instagram link={links.instagram}/> : <></>}
             {links.yt? <Youtube link={links.yt}/> : <></>}
+            {links.youtube? <Youtube link={links.youtube}/> : <></>}
             {links.tiktok? <TikTok link={links.tiktok}/> : <></>}
             {user? <IconSend user={user}/> : <></>}
         </SocialStyle>
