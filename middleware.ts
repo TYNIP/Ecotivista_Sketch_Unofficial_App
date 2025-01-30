@@ -14,7 +14,7 @@ export async function middleware(req: NextRequest) {
     // Extract User-Agent
     const userAgent = req.headers.get('user-agent') || '';
 
-    // Extract real client IP
+    // Extract ip's client + server
     let ipAddress = req.headers.get('x-forwarded-for')|| req.ip || '';
 
     // Send token and correct client IP to auth check
@@ -22,7 +22,7 @@ export async function middleware(req: NextRequest) {
       headers: {
         token: token.value,
         agent: userAgent,
-        ip: ipAddress, // Ensure only the first IP is used
+        ip: ipAddress, 
       },
     });
 
