@@ -4,6 +4,8 @@ import styles from "./index.module.scss";
 import SocialMedia from "../../../components/ui/SocialMedia";
 import UserArticles from "@/components/articles/user";
 import { useAuth } from "../../api/context/AuthContext";
+const {PATHURL} = require("@/maincConfig");
+
 
 import Image from "next/image";
 const defCover = require("../../../public/assets/default_coverpage.jpg");
@@ -30,7 +32,7 @@ export default function ProfilePage() {
   // Fetch user data from API
   async function fetchData() {
     try {
-      const response = await fetch(`/api/user/profile`, {
+      const response = await fetch(`${PATHURL}/api/user/profile`, {
         credentials: 'include', 
       });
   
@@ -77,7 +79,7 @@ export default function ProfilePage() {
     if (newCoverPhoto) formData.append("coverPhoto", newCoverPhoto);
 
     try {
-      await fetch(`/api/user/update`,{
+      await fetch(`${PATHURL}/api/user/update`,{
         method: "POST",
         credentials: 'include',
         body: formData
@@ -188,7 +190,7 @@ export default function ProfilePage() {
             </>
           ) : (
             <div>
-              <SocialMedia links={{ linkedIn, instagram, yt }} user={username}/>
+              <SocialMedia links={{ linkedIn, instagram, yt, tiktok }} user={username}/>
             </div>
           )}
         </div>
@@ -197,11 +199,11 @@ export default function ProfilePage() {
       <div className={styles.buttons}>
         {editMode ? (
           <>
-            <button onClick={handleSave} className={styles.secondaryButton}>Save Changes</button>
-            <button onClick={handleCancel} className={styles.secondaryButton}>Cancel</button>
+            <button onClick={handleSave} className={styles.secondaryButton}>Guardar Cambios</button>
+            <button onClick={handleCancel} className={styles.secondaryButton}>Cancelar</button>
           </>
         ) : (
-          <button onClick={() => setEditMode(true)} className={styles.primaryButton}>Edit Mode</button>
+          <button onClick={() => setEditMode(true)} className={styles.primaryButton}>Editar</button>
         )}
       </div>
 

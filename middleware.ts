@@ -3,35 +3,38 @@ import { NextResponse } from 'next/server';
 const { PATHURL } = require('./pages/api/config');
 
 export async function middleware(req: NextRequest) {
+
+  
   try {
     const token = req.cookies.get('auth_cookie');
-
     if (!token) {
-      return NextResponse.redirect(new URL('/login', req.url));
+      return NextResponse.redirect(new URL('/forums', req.url));
     }
 
-    // Extract User-Agent and IP address from the incoming request
+    // Extract User-Agent
     const userAgent = req.headers.get('user-agent') || '';
-    const ipAddress = req.headers.get('x-forwarded-for') || req.ip || ''; // Fallback to req.ip if necessary
 
-    // Make sure the headers are passed to the check endpoint
+    // Extract real client IP
+    let ipAddress = req.headers.get('x-forwarded-for')|| req.ip || '';
+
+    // Send token and correct client IP to auth check
     const res = await fetch(`${PATHURL}/api/auth/check`, {
       headers: {
         token: token.value,
-        'User-Agent': userAgent,
-        'x-forwarded-for': ipAddress,
+        agent: userAgent,
+        ip: ipAddress, // Ensure only the first IP is used
       },
     });
 
     const data = await res.json();
 
     if (!data.isAuthorized) {
-      return NextResponse.redirect(new URL('/login', req.url));
+      return NextResponse.redirect(new URL('/events', req.url));
     }
 
     return NextResponse.next();
   } catch (err) {
-    console.error('err', err);
+    console.error('Middleware error:', err);
     return NextResponse.redirect(new URL('/login', req.url));
   }
 }

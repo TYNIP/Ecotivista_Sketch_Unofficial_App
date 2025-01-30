@@ -1,10 +1,8 @@
 "use client";
 
-const { PATHURL } = require('../../api/config');
-
 export async function checkStatus() {
   try {
-    const res = await fetch(`${PATHURL}/api/auth/check`, {
+    const res = await fetch(`/api/auth/check`, {
       credentials: 'include', 
     });
 

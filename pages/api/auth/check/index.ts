@@ -11,13 +11,20 @@ const { SECRET } = require('../../config');
 export default async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     let token;
+    let userAgent;
+    let ipAddress;
 
     if (req.headers.token) {
       token = req.headers.token;
+      userAgent = req.headers.agent;
+      ipAddress = req.headers.ip;
+
     } else {
       const cookies = req.headers.cookie;
       const parsedCookies = cookies ? cookie.parse(cookies) : {};
       token = parsedCookies.auth_cookie;
+      userAgent = req.headers['user-agent'] || '';
+      ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress || ''; 
     }
 
     if (!token) {
@@ -50,13 +57,12 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
           })
         );
       } */
-
-      // Validate the current device's User-Agent and IP address to ensure it's the same device
-      const userAgent = req.headers['user-agent'] || '';
-      const ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress || ''; // Get the user's IP
+ 
+ // Get the user's IP
 
       const currentDeviceHash = crypto
         .createHash('sha256')
+        //@ts-ignore
         .update(userAgent + ipAddress)
         .digest('hex');
 
@@ -64,6 +70,8 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
         return res.status(401).json({
           message: 'Device mismatch. Unauthorized access.',
           isAuthorized: false,
+          do:{userAgent, ipAddress},
+          dt: {tokenDeviceHash, currentDeviceHash},
         });
       }
 
